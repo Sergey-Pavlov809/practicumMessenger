@@ -1,7 +1,7 @@
 export const tmpl = `
 <div class="login-form">
   <form>
-    <div class="{{css "form-group"}}">
+    <div class="{{"form-group"}}">
     <p>Sign in?</p>
       <label for="username">Имя пользователя:</label>
       <input type="text" class="form-control" id="username" name="username" placeholder="Введите имя пользователя" value="{{username}}">
