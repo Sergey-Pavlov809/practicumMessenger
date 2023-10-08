@@ -3,4 +3,11 @@ import handlebars from "vite-plugin-handlebars";
 
 export default defineConfig({
   plugins: [handlebars()],
+  css: {
+    preprocessorOptions: {
+      less: {
+        javascriptEnabled: true,
+      },
+    },
+  },
 });
