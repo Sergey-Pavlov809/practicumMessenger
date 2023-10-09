@@ -9,7 +9,7 @@
 3. Диалоги: https://deploy-preview-1--resplendent-chaja-1874eb.netlify.app/dialogs
 4. Профиль: https://deploy-preview-1--resplendent-chaja-1874eb.netlify.app/profile
 5. 4\*\* Ошибка: https://deploy-preview-1--resplendent-chaja-1874eb.netlify.app/asd
-6. 5\*\* Ошибка:
+6. 5\*\* Ошибка:https://deploy-preview-1--resplendent-chaja-1874eb.netlify.app/server-error
 
 ## Установка
 
