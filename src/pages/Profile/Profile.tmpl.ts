@@ -37,7 +37,13 @@ export const tmpl = `
       <input type="email" id="email" name="email" value="{{email}}">
       <label for="phone">Phone:</label>
       <input type="tel" id="phone" name="phone" value="{{phone}}">
-      <button type="submit">Save</button>
+      <label for="oldPassword">Старный пароль:</label>
+      <input type="password" id="oldPassword" name="oldPassword" value="{{oldPassword}}">
+      <label for="newPassword">Новый пароль:</label>
+      <input type="password" id="newPassword" name="newPassword" value="{{newPassword}}">
+      <label for="phone">Photo:</label>
+      <input type="file" id="photo" name="photo" value="{{photo}}">
+      <button type="submit"><a href="/dialogs">Сохранить</a></button>
     </div>
   </form>
 </div>
