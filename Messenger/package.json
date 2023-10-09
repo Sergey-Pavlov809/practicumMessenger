@@ -16,8 +16,6 @@
     "vite-plugin-style-import": "^2.0.0"
   },
   "dependencies": {
-    "consola": "^3.2.3",
-    "lodash-es": "^4.17.21",
     "vite-plugin-handlebars": "^1.6.0"
   }
 }

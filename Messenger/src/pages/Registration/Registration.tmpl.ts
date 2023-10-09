@@ -18,7 +18,7 @@ export const tmpl = `
       <label for="confirm-password">Подтвердите пароль:</label>
       <input type="password" class="form-control" id="confirm-password" name="confirm-password" placeholder="Подтвердите пароль" value="{{confirmPassword}}">
     </div>
-    <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+    <button type="submit" class="btn btn-primary"><a href="./dialogs">Зарегистрироваться</a></button>
   </form>
 </div>
 `;

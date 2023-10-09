@@ -3,5 +3,5 @@ import Handlebars from "handlebars";
 import { tmpl } from "./Registration.tmpl";
 
 export const Registration = () => {
-  return Handlebars.compile(tmpl)({ onsubmit: () => console.log("asd") });
+  return Handlebars.compile(tmpl)({});
 };
