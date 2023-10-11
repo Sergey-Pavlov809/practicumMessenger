@@ -3,9 +3,21 @@ export const tmpl = `
   <h2>Регистрация</h2>
   <form onSubmit={onClick}>
     <div class="form-group">
-      <label for="username">Имя пользователя:</label>
-      <input type="text" class="form-control" id="username" name="username" placeholder="Введите имя пользователя" value="{{username}}">
+      <label for="first_name">Логин:</label>
+      <input type="text" class="form-control" id="login" name="login" placeholder="Введите логин" value="{{first_name}}">
     </div>
+    <div class="form-group">
+      <label for="first_name">Имя:</label>
+      <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Введите имя пользователя" value="{{first_name}}">
+    </div>
+    <div class="form-group">
+      <label for="second">Фамилия:</label>
+      <input type="text" class="form-control" id="second_name" name="second_name" placeholder="Введите фамилию" value="{{second_name}}">
+    </div>
+    <div class="form-group">
+      <label for="phone">Телефон:</label>
+      <input type="text" class="form-control" id="phone" name="phone" placeholder="Введите телефон" value="{{phone}}">
+    </div>   
     <div class="form-group">
       <label for="email">Email:</label>
       <input type="email" class="form-control" id="email" name="email" placeholder="Введите email" value="{{email}}">

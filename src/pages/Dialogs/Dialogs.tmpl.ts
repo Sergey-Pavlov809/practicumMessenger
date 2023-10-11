@@ -32,8 +32,11 @@ export const tmpl = `
     {{else}}
       <p>Диалог не выбран</p>
     {{/if}}
+    <div class="message-input">
+    <input type="text" class="input-field" placeholder="Введите сообщение" value="{{message}}">
+    <button class="send-button">Отправить</button>
   </div>
   </div>
-  
+  </div>
 </div>
 `;

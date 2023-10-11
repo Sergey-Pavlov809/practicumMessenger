@@ -28,11 +28,17 @@ export const tmpl = `
   <form>
     <div class="edit-profile__avatar">
       <img src="{{avatarUrl}}" alt="Avatar">
-      <input type="file" accept="image/*">
+      <input type="file" accept="image/*" value="{{avatar}}">
     </div>
     <div class="edit-profile__info">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" value="{{name}}">
+      <label for="display_name">Отображаемое имя:</label>
+      <input type="text" id="display_name" name="display_name" value="{{display_name}}">
+      <label for="login">Логин:</label>
+      <input type="text" id="login" name="login" value="{{login}}">
+      <label for="first_name">Имя:</label>
+      <input type="text" id="first_name" name="first_name" value="{{first_name}}">
+      <label for="last_name">Фамилия:</label>
+      <input type="text" id="last_name" name="last_name" value="{{last_name}}">
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" value="{{email}}">
       <label for="phone">Phone:</label>
