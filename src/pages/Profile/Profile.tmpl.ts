@@ -12,43 +12,24 @@ export const tmpl = `
 </header>
 
 <div class="profile">
-  <div class="avatar">
-    <img src="{{avatarUrl}}" alt="Avatar">
-    <button class="avatar__edit-btn">Edit</button>
-  </div>
-  <div class="info">
-    <h2>{{name}}</h2>
-    <p>{{email}}</p>
-    <p>{{phone}}</p>
-    <button class="info__edit-btn">Edit</button>
-  </div>
-</div>
-
-<div class="edit-profile">
   <form>
     <div class="edit-profile__avatar">
-      <img src="{{avatarUrl}}" alt="Avatar">
+      <img src="{{avatar}}" alt="Avatar">
       <input type="file" accept="image/*" value="{{avatar}}">
     </div>
     <div class="edit-profile__info">
+    <label for="first_name">Имя:</label>
+      <input type="text" id="first_name" name="first_name" value="{{first_name}}">
+      <label for="second_name">Фамилия:</label>
+      <input type="text" id="second_name" name="second_name" value="{{second_name}}">
       <label for="display_name">Отображаемое имя:</label>
       <input type="text" id="display_name" name="display_name" value="{{display_name}}">
       <label for="login">Логин:</label>
       <input type="text" id="login" name="login" value="{{login}}">
-      <label for="first_name">Имя:</label>
-      <input type="text" id="first_name" name="first_name" value="{{first_name}}">
-      <label for="last_name">Фамилия:</label>
-      <input type="text" id="last_name" name="last_name" value="{{last_name}}">
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" value="{{email}}">
       <label for="phone">Phone:</label>
-      <input type="tel" id="phone" name="phone" value="{{phone}}">
-      <label for="oldPassword">Старный пароль:</label>
-      <input type="password" id="oldPassword" name="oldPassword" value="{{oldPassword}}">
-      <label for="newPassword">Новый пароль:</label>
-      <input type="password" id="newPassword" name="newPassword" value="{{newPassword}}">
-      <label for="phone">Photo:</label>
-      <input type="file" id="photo" name="photo" value="{{photo}}">
+      <input type="tel" id="phone" name="phone" value="{{phone}}"> 
       <button type="submit"><a href="/dialogs">Сохранить</a></button>
     </div>
   </form>
