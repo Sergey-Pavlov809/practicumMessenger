@@ -1,0 +1,13 @@
+{
+  "hash": "4bd64c77",
+  "browserHash": "f8b542cc",
+  "optimized": {
+    "handlebars": {
+      "src": "../../node_modules/handlebars/dist/cjs/handlebars.js",
+      "file": "handlebars.js",
+      "fileHash": "ae140098",
+      "needsInterop": true
+    }
+  },
+  "chunks": {}
+}
