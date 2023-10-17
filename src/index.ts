@@ -10,14 +10,25 @@ const ROUTES: Record<string, string> = {
   "/registration": Registration(),
   "/profile": Profile(),
   "/server-error": Error500(),
-  "/": Auth(),
+  "/": "",
+};
+
+const ROUTES_NEW: Record<string, any> = {
+  "/": new Auth(),
 };
 
 window.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("app");
 
+  const component = ROUTES_NEW["/"];
+
+  // console.log(new Auth());
+
   if (root) {
-    const component = ROUTES[window.location.pathname] || Error400()({});
-    root.innerHTML = component;
+    root.append(component.element!);
+
+    component.dispatchComponentDidMount();
+    //const component = ROUTES[window.location.pathname] || Error400()({});
+    //root.innerHTML = component;
   }
 });
