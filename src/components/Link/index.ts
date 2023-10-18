@@ -1,11 +1,11 @@
 import Block from "../../utils/Block";
-import { tmpl } from "./input.tmpl";
+import { tmpl } from "./Link.tmpl";
 
-//type="text" class="form-control" id="username" name="username" placeholder="Введите имя пользователя"
+//type="text" classNames="form-control" id="username" name="username" placeholder="Введите имя пользователя"
 interface TLink {
   label: string;
   url?: string;
-  class?: string;
+  classNames?: string;
   events?: Record<string, (args: any) => void>;
 }
 

@@ -1,7 +1,13 @@
-import Handlebars from "handlebars";
-
+import Block from "../../utils/Block";
 import { tmpl } from "./Error400.tmpl";
 
-export const Error400 = () => {
-  return Handlebars.compile(tmpl);
-};
+type TProps = {};
+export class Error400 extends Block {
+  constructor(props = {}) {
+    super(props);
+  }
+
+  render() {
+    return this.compile(tmpl, this.props);
+  }
+}

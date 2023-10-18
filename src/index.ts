@@ -7,20 +7,22 @@ import { Registration } from "./pages/Registration/Registration";
 
 const ROUTES: Record<string, string> = {
   "/dialogs": Dialogs(),
-  "/registration": Registration(),
+
   "/profile": Profile(),
-  "/server-error": Error500(),
+
   "/": "",
 };
 
 const ROUTES_NEW: Record<string, any> = {
   "/": new Auth(),
+  "/register": new Registration(),
+  "/server-error": new Error500(),
 };
 
 window.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("app");
 
-  const component = ROUTES_NEW["/"];
+  const component = ROUTES_NEW[window.location.pathname] || new Error400({});
 
   // console.log(new Auth());
 

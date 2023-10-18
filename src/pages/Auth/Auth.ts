@@ -5,97 +5,111 @@ import Block from "./../../utils/Block";
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
 import { Form } from "../../components/Form";
+import { Link } from "../../components/Link";
 
 export class Auth extends Block {
-  constructor() {
-    super({});
+  public constructor(props = {}) {
+    super(props);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
-  Submit(event: any) {
-    event.preventDefault();
-    //if (!event.target) return;
-    console.log(event.target);
+  loginValidator(login: string) {
+    console.log(login);
 
-    const formData = new FormData(event.target);
+    if (!login) return "НЕ введен логин";
 
-    for (const [key, value] of formData.entries()) {
-      console.log(`${key}: ${value}`);
+    if (login.length < 3 || login.length > 20) {
+      return "Некорректная длинна";
     }
-    console.log(formData);
+
+    const regex = /^[a-zA-Z0-9_-]+$/;
+    if (!regex.test(login)) {
+      return "Содержит недопустимые символы";
+    }
+
+    if (/^\d+$/.test(login)) {
+      return "Содержит недопустимые символы";
+    }
+
+    return "";
   }
-  /**
-   *  (this.children.button = new Button({
-      label: "Войти №2",
-      events: {
-        click: () => {
-          console.log("asd");
-          this.onSubmit.bind(this);
-        },
-      },
-      type: "submit",
-    })),
-      (this.children.username = new Input({
-        type: "form",
-        class: "form-control",
-        id: "username",
-        name: "username",
-        placeholder: "Введите имя пользователя",
-        label: "Имя пользователя",
-      })),
-      (this.children.password = new Input({
-        type: "form",
-        class: "form-control",
-        id: "password",
-        name: "password",
-        placeholder: "Введите пароль",
-      }));
-   */
 
-  inputsComp = [
-    new Input({
-      type: "form",
-      class: "form-control",
-      id: "username",
-      name: "username",
-      placeholder: "Введите имя пользователя",
-      label: "Имя пользователя",
-    }),
-    new Input({
-      type: "form",
-      class: "form-control",
-      id: "password",
-      name: "password",
-      placeholder: "Введите пароль",
-    }),
-  ];
+  passwordValidator(password: string) {
+    console.log(password);
 
-  init() {
+    if (!password) return "false";
+
+    if (password.length < 8 || password.length > 40) {
+      return "Некорректная длинна";
+    }
+
+    if (password.toLocaleLowerCase() === password)
+      return "Должна быть хоты бы одна большая буква";
+
+    return "";
+  }
+
+  protected init() {
     this.children.form = new Form({
       inputs: [
         new Input({
-          type: "form",
-          class: "form-control",
-          id: "username",
-          name: "username",
-          placeholder: "Введите имя пользователя",
-          label: "Имя пользователя",
+          name: "login",
+          label: "Логин",
+          type: "text",
+          checkValidation: this.loginValidator,
         }),
         new Input({
-          type: "form",
-          class: "form-control",
-          id: "password",
           name: "password",
-          placeholder: "Введите пароль",
+          label: "Пароль",
+          type: "password",
+          checkValidation: this.passwordValidator,
         }),
       ],
       events: {
-        submit: (e: Event) => this.Submit(e),
+        submit: (e: Event) => this.onSubmit(e),
       },
-      submitButton: new Button({ label: "Войти", type: "submit" }),
+      link: new Link({ label: "Нет аккаунта?", url: "/register" }),
+      title: "Вход",
+      button: new Button({ label: "Войти", type: "submit" }),
     });
   }
 
-  render() {
+  isLoginFormValid = (): boolean => {
+    if (this.children.form instanceof Form) {
+      return this.children.form.isFormValid();
+    }
+
+    return false;
+  };
+
+  handlecheckValidationForm = (): void => {
+    if (this.children.form instanceof Form) {
+      this.children.form.checkValidationInputs();
+    }
+  };
+
+  private onSubmit(e: Event) {
+    e.preventDefault();
+    if (e.target && e.target instanceof HTMLFormElement) {
+      const formData = new FormData(e?.target);
+      const form: Record<string, FormDataEntryValue> = {};
+
+      for (const [key, value] of Object.entries(formData)) {
+        form[key] = value;
+      }
+
+      console.log(this.handlecheckValidationForm());
+
+      console.log(this.isLoginFormValid());
+
+      if (this.isLoginFormValid()) {
+        window.location.href = "/dialogs";
+        this.removeEvents();
+      }
+    }
+  }
+
+  protected render() {
     return this.compile(tmpl, this.props);
   }
 }

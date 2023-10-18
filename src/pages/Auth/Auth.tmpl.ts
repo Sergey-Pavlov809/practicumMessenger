@@ -1,7 +1,6 @@
 export const tmpl = `
-<div class="registration-form">
-  <h2>Войти</h2>
+<div classNames="registration-form">
   {{{form}}}
-  <a href="./registration">or Sign up?</a>
+  {{{link}}}
 </div>
 `;

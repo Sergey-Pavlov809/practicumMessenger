@@ -1,6 +1,10 @@
 export const tmpl = `
-<div class="form-group">
-    <label for="username">{{label}}</label>
-    <input type={{type}} class="form-control" id={{id}} name={{name}} placeholder={{placeholder}} value="{{value}}">
+<div>
+    <label class="input__label" for={{name}}>{{labelValue}}</label>
+    <input type='{{type}}' value='{{value}}' id={{name}} type="text" name={{name}} class="input {{class}}" >
+    
+    {{#if error}}
+        <p class="error">{{error}}</p>
+    {{/if}}
 </div>
 `;

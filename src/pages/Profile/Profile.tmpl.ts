@@ -1,23 +1,23 @@
 export const tmpl = `
-<header class="header">
-  <div class="header__logo">
+<header classNames="header">
+  <div classNames="header__logo">
     <img src="https://telegram.org/img/t_logo.png" alt="Telegram Logo">
     <h1>Настройки</h1>
   </div>
-  <nav class="header__nav">
+  <nav classNames="header__nav">
     <ul>
       <li><a href="/dialogs">Диалоги</a></li>
     </ul>
   </nav>
 </header>
 
-<div class="profile">
+<div classNames="profile">
   <form>
-    <div class="edit-profile__avatar">
+    <div classNames="edit-profile__avatar">
       <img src="{{avatar}}" alt="Avatar">
       <input type="file" accept="image/*" value="{{avatar}}">
     </div>
-    <div class="edit-profile__info">
+    <div classNames="edit-profile__info">
     <label for="first_name">Имя:</label>
       <input type="text" id="first_name" name="first_name" value="{{first_name}}">
       <label for="second_name">Фамилия:</label>
