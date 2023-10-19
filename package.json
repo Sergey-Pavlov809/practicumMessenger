@@ -31,6 +31,7 @@
     "node": ">=12"
   },
   "dependencies": {
+    "eslint-plugin-jsx-a11y": "^6.7.1",
     "stylelint-less": "^2.0.0",
     "vite-plugin-checker": "^0.6.2",
     "vite-plugin-handlebars": "^1.6.0"
