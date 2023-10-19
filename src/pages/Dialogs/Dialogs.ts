@@ -31,7 +31,6 @@ const selectedDialogue = {
   messages,
 };
 
-type TProps = {};
 export class Dialogs extends Block {
   constructor(props = {}) {
     super(props);

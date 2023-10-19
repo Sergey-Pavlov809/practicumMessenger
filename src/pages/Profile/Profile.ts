@@ -6,7 +6,6 @@ import {
   emailValidator,
   loginValidator,
   nameValidator,
-  passwordValidator,
   phoneValidator,
 } from "../../utils/validators";
 import { Form } from "../../components/Form";
@@ -22,8 +21,6 @@ const PROFILE_DATA = {
   avatar: "https://telegram.org/img/t_logo.png",
   phone: "1234143534",
 };
-
-type TProps = {};
 export class Profile extends Block {
   nameValidator: ((args: string) => string | null) | undefined;
   constructor(props = {}) {

@@ -1,4 +1,3 @@
-import Handlebars from "handlebars";
 import { tmpl } from "./Auth.tmpl";
 import "./Auth.less";
 import Block from "../../utils/Block";

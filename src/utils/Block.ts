@@ -17,17 +17,11 @@ export default class Block<P extends Record<string, any> = any> {
   public props: P;
   private eventBus: () => EventBus;
   private _element: HTMLElement | null = null;
-  private _meta: { tagName: string; props: P };
 
-  constructor(propsWithChildren: P, tagName = "div") {
+  constructor(propsWithChildren: P) {
     const eventBus = new EventBus();
 
     const { props, children } = this._getChildrenAndProps(propsWithChildren);
-
-    this._meta = {
-      tagName,
-      props: props as P,
-    };
 
     this.children = children;
     this.props = this._makePropsProxy(props);
