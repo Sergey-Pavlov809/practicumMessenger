@@ -81,36 +81,48 @@ export class Registration extends Block {
         name: "login",
         label: "Логин",
         type: "text",
+        placeholder: "Логин",
+        className: "form-group",
         checkValidation: this.loginValidator,
       }),
       new Input({
         name: "first_name",
         label: "Введите имя",
         type: "text",
+        placeholder: "Введите имя",
+        className: "form-group",
         checkValidation: this.nameValidator,
       }),
       new Input({
         name: "second_name",
         label: "Введите фамилию",
+        placeholder: "Введите фамилию",
         type: "text",
+        className: "form-group",
         checkValidation: this.nameValidator,
       }),
       new Input({
         name: "phone",
         label: "Введите телефон",
+        placeholder: "Введите телефон",
         type: "text",
+        className: "form-group",
         checkValidation: this.phoneValidator,
       }),
       new Input({
         name: "email",
         label: "ВВедите почту",
+        placeholder: "Введите почту",
         type: "text",
+        className: "form-group",
         checkValidation: this.emailValidator,
       }),
       new Input({
         name: "password",
         label: "Введите пароль",
+        placeholder: "Введите пароль",
         type: "password",
+        className: "form-group",
         checkValidation: this.passwordValidator,
       }),
     ];
@@ -120,6 +132,7 @@ export class Registration extends Block {
       events: {
         submit: (e: Event) => this.onSubmit(e),
       },
+      className: ``,
       button: new Button({ label: "Зарегистрироваться", type: "submit" }),
     });
   }

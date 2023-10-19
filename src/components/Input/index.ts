@@ -21,6 +21,7 @@ export class Input extends Block<TProps> {
       value: "",
       error: undefined,
       className: "",
+      placeholder: "",
       events: {
         blur: () => {
           this.checkValidation();

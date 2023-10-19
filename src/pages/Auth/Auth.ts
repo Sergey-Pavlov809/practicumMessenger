@@ -52,6 +52,8 @@ export class Auth extends Block {
           name: "login",
           label: "Логин",
           type: "text",
+          placeholder: "Логин",
+          className: "form-group",
           events: {
             blur: () => {
               console.log("asd");
@@ -69,6 +71,7 @@ export class Auth extends Block {
       events: {
         submit: (e: Event) => this.onSubmit(e),
       },
+      className: "registration-form",
       button: new Button({ label: "Войти", type: "submit" }),
     })),
       (this.children.link = new Link({
@@ -96,6 +99,8 @@ export class Auth extends Block {
     e.preventDefault();
     if (e.target) {
       this.updateIsValidForm();
+
+      console.log(this.children.form);
 
       console.log(this.updateIsValidForm());
 
