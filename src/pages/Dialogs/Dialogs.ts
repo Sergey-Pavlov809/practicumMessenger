@@ -38,8 +38,28 @@ export class Dialogs extends Block {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  isFormValid = (): boolean => {
+    if (this.children.form instanceof Form) {
+      return this.children.form.isFormValid();
+    }
+
+    return false;
+  };
+
+  updateIsValidForm = (): void => {
+    if (this.children.form instanceof Form) {
+      this.children.form.checkValidationInputs();
+    }
+  };
+
   private onSubmit(e: Event) {
     e.preventDefault();
+
+    this.updateIsValidForm();
+
+    if (this.isFormValid()) {
+      window.location.href = "/dialogs";
+    }
   }
 
   messageValidator(message: string) {
@@ -48,6 +68,8 @@ export class Dialogs extends Block {
     if (message.length === 0) {
       return "Пустое сообщение";
     }
+
+    console.log("asdf")
 
     return "";
   }

@@ -150,13 +150,8 @@ export class Registration extends Block {
 
   private onSubmit(e: Event) {
     e.preventDefault();
-    if (e.target && e.target instanceof HTMLFormElement) {
-      const formData = new FormData(e?.target);
-      const form: Record<string, FormDataEntryValue> = {};
-
-      for (const [key, value] of Object.entries(formData)) {
-        form[key] = value;
-      }
+    if (e.target) {
+      this.updateIsValidForm();
 
       if (this.isFormValid()) {
         window.location.href = "/dialogs";
