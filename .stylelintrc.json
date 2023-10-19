@@ -1,9 +1,6 @@
 {
   "extends": ["stylelint-config-standard", "stylelint-config-recommended-less"],
-  "plugins": [
-    "stylelint-order",
-    "stylelint-declaration-block-no-ignored-props"
-  ],
+  "plugins": ["stylelint-order", "stylelint-no-unsupported-browser-features"],
   "rules": {
     "at-rule-no-unknown": null,
     "selector-pseudo-element-no-unknown": null,
