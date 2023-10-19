@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 dist
 settings.json
+./settings.json
 dist-ssr
 *.local
 
