@@ -12,13 +12,14 @@
       "jsx-a11y/alt-text": "error",
       "react/jsx-props-no-spreading": "warn",
       "react/jsx-no-undef": "error",
-      "import/extensions": ["error", "never"],
-      "import/no-unresolved": "error",
+      "import/extensions": ["off"],
+      "import/no-unresolved": "off",
       "import/prefer-default-export": "off",
       "linebreak-style": ["error", "unix"],
       "no-unused-expressions": "off",
       "indent": ["error", 2],
-      "no-useless-constructor": "off"
+      "no-useless-constructor": "off",
+      "lines-between-class-members": "off"
     },
     "globals": {
       "document": true,

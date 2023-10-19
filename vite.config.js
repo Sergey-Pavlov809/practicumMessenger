@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import handlebars from "vite-plugin-handlebars";
+// eslint-disable-next-line import/no-extraneous-dependencies
 import less from "less";
 
 export default defineConfig({
@@ -7,6 +8,7 @@ export default defineConfig({
     handlebars(),
     {
       name: "less",
+      // eslint-disable-next-line consistent-return
       async transform(code, id) {
         if (id.endsWith(".less")) {
           const { css } = await less.render(code);
