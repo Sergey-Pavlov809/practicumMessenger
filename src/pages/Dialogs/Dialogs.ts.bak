@@ -68,8 +68,8 @@ export class Dialogs extends Block {
       button: new Button({ label: "Send!", type: "submit" }),
       className: "message-input",
     })),
-    (this.props.selectedDialogue = selectedDialogue),
-    (this.props.dialogues = dialogues);
+      (this.props.selectedDialogue = selectedDialogue),
+      (this.props.dialogues = dialogues);
   }
 
   render() {

@@ -129,7 +129,7 @@ export class Registration extends Block {
       events: {
         submit: (e: Event) => this.onSubmit(e),
       },
-      className: ``,
+      className: "",
       button: new Button({ label: "Зарегистрироваться", type: "submit" }),
     });
   }

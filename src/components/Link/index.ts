@@ -1,7 +1,7 @@
 import Block from "../../utils/Block";
 import { tmpl } from "./Link.tmpl";
 
-//type="text" className="form-control" id="username" name="username" placeholder="Введите имя пользователя"
+//type="text" className="form-control" id="username" name="username" 
 interface TLink {
   label: string;
   url?: string;

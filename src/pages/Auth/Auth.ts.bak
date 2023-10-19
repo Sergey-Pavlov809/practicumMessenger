@@ -69,10 +69,10 @@ export class Auth extends Block {
       className: "registration-form",
       button: new Button({ label: "Войти", type: "submit" }),
     })),
-    (this.children.link = new Link({
-      label: "Нет аккаунта?",
-      url: "/register",
-    }));
+      (this.children.link = new Link({
+        label: "Нет аккаунта?",
+        url: "/register",
+      }));
   }
 
   isFormValid = (): boolean => {
