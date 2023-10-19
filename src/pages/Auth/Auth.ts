@@ -14,8 +14,6 @@ export class Auth extends Block {
   }
 
   loginValidator(login: string) {
-    console.log(login);
-
     if (!login) return "НЕ введен логин";
 
     if (login.length < 3 || login.length > 20) {
@@ -35,8 +33,6 @@ export class Auth extends Block {
   }
 
   passwordValidator(password: string) {
-    console.log(password);
-
     if (!password) return "false";
 
     if (password.length < 8 || password.length > 40) {
@@ -50,12 +46,17 @@ export class Auth extends Block {
   }
 
   protected init() {
-    this.children.form = new Form({
+    (this.children.form = new Form({
       inputs: [
         new Input({
           name: "login",
           label: "Логин",
           type: "text",
+          events: {
+            blur: () => {
+              console.log("asd");
+            },
+          },
           checkValidation: this.loginValidator,
         }),
         new Input({
@@ -68,13 +69,15 @@ export class Auth extends Block {
       events: {
         submit: (e: Event) => this.onSubmit(e),
       },
-      link: new Link({ label: "Нет аккаунта?", url: "/register" }),
-      title: "Вход",
       button: new Button({ label: "Войти", type: "submit" }),
-    });
+    })),
+      (this.children.link = new Link({
+        label: "Нет аккаунта?",
+        url: "/register",
+      }));
   }
 
-  isLoginFormValid = (): boolean => {
+  isFormValid = (): boolean => {
     if (this.children.form instanceof Form) {
       return this.children.form.isFormValid();
     }
@@ -82,29 +85,24 @@ export class Auth extends Block {
     return false;
   };
 
-  handlecheckValidationForm = (): void => {
+  updateIsValidForm = (): void => {
     if (this.children.form instanceof Form) {
       this.children.form.checkValidationInputs();
     }
   };
 
-  private onSubmit(e: Event) {
+  private onSubmit(e: HTMLFormElement) {
+    console.log("call");
     e.preventDefault();
-    if (e.target && e.target instanceof HTMLFormElement) {
-      const formData = new FormData(e?.target);
-      const form: Record<string, FormDataEntryValue> = {};
+    if (e.target) {
+      this.updateIsValidForm();
 
-      for (const [key, value] of Object.entries(formData)) {
-        form[key] = value;
-      }
+      console.log(this.updateIsValidForm());
 
-      console.log(this.handlecheckValidationForm());
+      console.log(this.isFormValid());
 
-      console.log(this.isLoginFormValid());
-
-      if (this.isLoginFormValid()) {
+      if (this.isFormValid()) {
         window.location.href = "/dialogs";
-        this.removeEvents();
       }
     }
   }

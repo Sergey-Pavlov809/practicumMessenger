@@ -52,8 +52,25 @@ export class Registration extends Block {
     const regex = /^[А-ЯЁA-Z][А-ЯЁA-Zа-яёa-z\-]*$/;
 
     if (!regex.test(name)) {
-      return "Строка содержит недопустимые символы";
+      return "Некорректное имя";
     }
+
+    return "";
+  }
+
+  emailValidator(email: string): string {
+    const emailPattern: RegExp =
+      /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+    if (!emailPattern.test(email)) return "Некорректный емэйл";
+
+    return "";
+  }
+
+  phoneValidator(phone: string): string {
+    const pattern: RegExp = /^\+?\d{10,15}$/;
+
+    if (!pattern.test(phone)) return "Некорректный номер";
 
     return "";
   }
@@ -82,18 +99,18 @@ export class Registration extends Block {
         name: "phone",
         label: "Введите телефон",
         type: "text",
-        checkValidation: this.nameValidator,
+        checkValidation: this.phoneValidator,
       }),
       new Input({
         name: "email",
         label: "ВВедите почту",
         type: "text",
-        checkValidation: this.nameValidator,
+        checkValidation: this.emailValidator,
       }),
       new Input({
         name: "password",
         label: "Введите пароль",
-        type: "text",
+        type: "password",
         checkValidation: this.passwordValidator,
       }),
     ];
@@ -103,12 +120,11 @@ export class Registration extends Block {
       events: {
         submit: (e: Event) => this.onSubmit(e),
       },
-      title: "Вход",
       button: new Button({ label: "Зарегистрироваться", type: "submit" }),
     });
   }
 
-  isLoginFormValid = (): boolean => {
+  isFormValid = (): boolean => {
     if (this.children.form instanceof Form) {
       return this.children.form.isFormValid();
     }
@@ -116,7 +132,7 @@ export class Registration extends Block {
     return false;
   };
 
-  handlecheckValidationForm = (): void => {
+  updateIsValidForm = (): void => {
     if (this.children.form instanceof Form) {
       this.children.form.checkValidationInputs();
     }
@@ -132,13 +148,12 @@ export class Registration extends Block {
         form[key] = value;
       }
 
-      console.log(this.handlecheckValidationForm());
+      console.log(this.updateIsValidForm());
 
-      console.log(this.isLoginFormValid());
+      console.log(this.isFormValid());
 
-      if (this.isLoginFormValid()) {
+      if (this.isFormValid()) {
         window.location.href = "/dialogs";
-        this.removeEvents();
       }
     }
   }

@@ -1,10 +1,10 @@
 export const tmpl = `
-<div>
-    <label classNames="input__label" for={{name}}>{{labelValue}}</label>
-    <input type='{{type}}' value='{{value}}' id={{name}} type="text" name={{name}} classNames="input {{classNames}}" >
+<div class="input">
+    <label class="input__label" for={{name}}>{{label}}</label>
+    <input type='{{type}}' value='{{value}}' id={{name}} type="text" name={{name}} class="input {{className}}" >
     
     {{#if error}}
-        <p classNames="error">{{error}}</p>
+        <p class="error">{{error}}</p>
     {{/if}}
 </div>
 `;

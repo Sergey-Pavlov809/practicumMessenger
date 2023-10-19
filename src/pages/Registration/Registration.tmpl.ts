@@ -1,5 +1,5 @@
 export const tmpl = `
-<div classNames="registration-form">
+<div className="registration-form">
   {{{form}}}
 </div>
 `;

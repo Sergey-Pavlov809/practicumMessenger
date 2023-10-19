@@ -5,16 +5,14 @@ import { Error500 } from "./pages/Error500/Error500";
 import { Profile } from "./pages/Profile/Profile";
 import { Registration } from "./pages/Registration/Registration";
 
-const ROUTES: Record<string, string> = {
-  "/dialogs": Dialogs(),
-
-  "/profile": Profile(),
-
+/*const ROUTES: Record<string, string> = {
   "/": "",
-};
+};*/
 
 const ROUTES_NEW: Record<string, any> = {
   "/": new Auth(),
+  "/dialogs": new Dialogs(),
+  "/profile": new Profile(),
   "/register": new Registration(),
   "/server-error": new Error500(),
 };

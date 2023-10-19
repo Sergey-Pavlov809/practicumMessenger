@@ -4,10 +4,11 @@ import "./Input.less";
 
 interface TProps {
   name: string;
-  label: string;
+  label?: string;
   events?: Record<string, (args: unknown) => void>;
+  placeholder?: string;
   error?: string;
-  classNames?: string;
+  className?: string;
   value?: string;
   type?: string;
   checkValidation?: (args: string) => string | null;
@@ -15,7 +16,18 @@ interface TProps {
 
 export class Input extends Block<TProps> {
   constructor(props: TProps) {
-    super({ value: "", error: undefined, classNames: "", ...props });
+    console.log(props);
+    super({
+      value: "",
+      error: undefined,
+      className: "",
+      events: {
+        blur: () => {
+          this.checkValidation();
+        },
+      },
+      ...props,
+    });
   }
 
   isInputValid() {
@@ -29,21 +41,20 @@ export class Input extends Block<TProps> {
   checkValidation() {
     if (this.props.checkValidation != null) {
       const error = this.props.checkValidation(this.value);
-      console.log(error == null, this.props.error);
-      if (error != null) {
+      console.log(error === null, this.props.error);
+      if (Number(error?.length) > 0 && error) {
         this.setProps({
           ...this.props,
           value: this.value,
           error,
-          classNames: `${this.props.classNames} error`,
+          className: `${this.props.className} error`,
         });
-      }
-      if (error == null && this.props.error != "") {
+      } else {
         this.setProps({
           ...this.props,
           value: this.value,
           error: undefined,
-          classNames: this.props.classNames?.replace("error", "").trim(),
+          className: `${this.props.className}`,
         });
       }
     }

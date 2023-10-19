@@ -12,33 +12,28 @@ export default class Block<P extends Record<string, any> = any> {
     FLOW_CDU: "flow:component-did-update",
     FLOW_RENDER: "flow:render",
   };
-  public children: Record<string, Block<any> | Block<any>[]>;
+  protected children: Record<string, Block<any> | Block<any>[]>;
   public id = nanoid(6);
   public props: P;
   private eventBus: () => EventBus;
   private _element: HTMLElement | null = null;
+  private _meta: { tagName: string; props: P };
 
-  constructor(propsWithChildren: P) {
+  constructor(propsWithChildren: P, tagName = "div") {
     const eventBus = new EventBus();
 
     const { props, children } = this._getChildrenAndProps(propsWithChildren);
+
+    this._meta = {
+      tagName,
+      props: props as P,
+    };
 
     this.children = children;
     this.props = this._makePropsProxy(props);
     this.eventBus = () => eventBus;
     this._registerEvents(eventBus);
     eventBus.emit(Block.EVENTS.INIT);
-  }
-
-  protected removeEvents() {
-    this._removeEvents();
-    Object.keys(this.children).forEach((child) => {
-      if (Array.isArray(this.children[child])) {
-        (this.children[child] as Block<P>[]).forEach((ch) => ch.removeEvents());
-      } else {
-        (this.children[child] as Block<P>).removeEvents();
-      }
-    });
   }
 
   private _getChildrenAndProps(childrenAndProps: P): {
@@ -70,16 +65,6 @@ export default class Block<P extends Record<string, any> = any> {
     if (events != null) {
       Object.keys(events).forEach((eventName) => {
         this._element?.addEventListener(eventName, events[eventName]);
-      });
-    }
-  }
-
-  private _removeEvents() {
-    const { events } = this.props;
-
-    if (events != null) {
-      Object.keys(events).forEach((eventName) => {
-        this._element?.removeEventListener(eventName, events[eventName]);
       });
     }
   }
@@ -128,7 +113,7 @@ export default class Block<P extends Record<string, any> = any> {
   }
 
   public setProps = (nextProps: P) => {
-    if (nextProps == null) {
+    if (nextProps === null) {
       return;
     }
     console.log(nextProps);
@@ -177,7 +162,7 @@ export default class Block<P extends Record<string, any> = any> {
 
     const replaceSkeleton = (component: any) => {
       const dummy = temp.content.querySelector(`[data-id="${component.id}"]`);
-      if (dummy == null) {
+      if (dummy === null) {
         return;
       }
 
@@ -222,13 +207,9 @@ export default class Block<P extends Record<string, any> = any> {
         }
         const oldTarget = { ...target };
 
-        if (key in target) {
-          target[key as keyof P] = value;
-          self.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
-          return true;
-        }
-
-        return false;
+        target[key as keyof P] = value;
+        self.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
+        return true;
       },
       deleteProperty() {
         throw new Error("No access");

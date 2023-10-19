@@ -1,41 +1,30 @@
 import Block from "../../utils/Block";
 import { Button } from "../Button";
 import { Input } from "../Input";
-import { Link } from "../Link";
 import { tmpl } from "./form.tmpl";
 
-//type="text" classNames="form-control" id="username" name="username" placeholder="Введите имя пользователя"
+//type="text" className="form-control" id="username" name="username" placeholder="Введите имя пользователя"
 interface FormProps {
   button: Button;
-  link?: Link;
   events?: Record<string, (args: any) => void>;
   inputs?: Input[];
-  classNamesNames?: string;
-  title?: string;
+  className?: string;
 }
 
 export class Form extends Block<FormProps> {
-  constructor({
-    button,
-    link,
-    events = {},
-    inputs = [],
-    classNamesNames = "",
-    title = "",
-  }: FormProps) {
+  constructor({ button, events = {}, inputs = [], className = "" }: FormProps) {
     const props = {
       button,
-      link,
       inputs,
-      classNamesNames,
-      title,
+      className,
       events,
     };
     super(props);
+    console.log(inputs);
   }
 
   public checkValidationInputs(): void {
-    if (this.children.inputs && Array.isArray(this.children.inputs))
+    if (!!this.children.inputs && Array.isArray(this.children.inputs))
       (this.children.inputs as Input[]).forEach((input) => {
         input.checkValidation();
       });

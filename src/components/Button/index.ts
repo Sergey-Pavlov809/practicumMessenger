@@ -6,7 +6,7 @@ interface TProps {
   label: string;
   events?: Record<string, (args: any) => void>;
   type?: string;
-  classNames?: string;
+  className?: string;
 }
 
 export class Button extends Block<TProps> {
