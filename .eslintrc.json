@@ -6,6 +6,8 @@
       "max-len": [2, 100],
       "@typescript-eslint/no-unused-vars": 2,
       "jsx-a11y/accessible-emoji": "error",
-      "jsx-a11y/alt-text": "error"
+      "jsx-a11y/alt-text": "error",
+      "react/jsx-props-no-spreading": "warn",
+      "react/jsx-no-undef": "error"
       }
   }
