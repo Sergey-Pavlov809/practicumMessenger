@@ -1,4 +1,3 @@
-import Handlebars from "handlebars";
 import { tmpl } from "./Dialogs.tmpl";
 import "./Dialogs.less";
 import Block from "../../utils/Block";

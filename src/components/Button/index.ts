@@ -1,6 +1,6 @@
 import Block from "../../utils/Block";
 import { tmpl } from "./Button.tmpl";
-import "./button.less";
+import "./Button.less";
 
 interface TProps {
   label: string;

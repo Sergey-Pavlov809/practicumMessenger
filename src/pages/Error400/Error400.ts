@@ -1,7 +1,6 @@
 import Block from "../../utils/Block";
 import { tmpl } from "./Error400.tmpl";
 
-type TProps = {};
 export class Error400 extends Block {
   constructor(props = {}) {
     super(props);

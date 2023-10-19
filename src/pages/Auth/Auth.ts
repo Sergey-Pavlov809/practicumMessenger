@@ -1,7 +1,7 @@
 import Handlebars from "handlebars";
 import { tmpl } from "./Auth.tmpl";
 import "./Auth.less";
-import Block from "./../../utils/Block";
+import Block from "../../utils/Block";
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
 import { Form } from "../../components/Form";
@@ -39,8 +39,9 @@ export class Auth extends Block {
       return "Некорректная длинна";
     }
 
-    if (password.toLocaleLowerCase() === password)
+    if (password.toLocaleLowerCase() === password) {
       return "Должна быть хоты бы одна большая буква";
+    }
 
     return "";
   }
@@ -54,11 +55,6 @@ export class Auth extends Block {
           type: "text",
           placeholder: "Логин",
           className: "form-group",
-          events: {
-            blur: () => {
-              console.log("asd");
-            },
-          },
           checkValidation: this.loginValidator,
         }),
         new Input({
@@ -94,17 +90,11 @@ export class Auth extends Block {
     }
   };
 
-  private onSubmit(e: HTMLFormElement) {
+  private onSubmit(e: Event) {
     console.log("call");
     e.preventDefault();
     if (e.target) {
       this.updateIsValidForm();
-
-      console.log(this.children.form);
-
-      console.log(this.updateIsValidForm());
-
-      console.log(this.isFormValid());
 
       if (this.isFormValid()) {
         window.location.href = "/dialogs";
