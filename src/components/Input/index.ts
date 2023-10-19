@@ -16,7 +16,6 @@ interface TProps {
 
 export class Input extends Block<TProps> {
   constructor(props: TProps) {
-    console.log(props);
     super({
       value: "",
       error: undefined,
@@ -42,7 +41,6 @@ export class Input extends Block<TProps> {
   checkValidation() {
     if (this.props.checkValidation != null) {
       const error = this.props.checkValidation(this.value);
-      console.log(error === null, this.props.error);
       if (Number(error?.length) > 0 && error) {
         this.setProps({
           ...this.props,
@@ -62,7 +60,6 @@ export class Input extends Block<TProps> {
   }
 
   get value() {
-    console.log(this.element);
     return this.element?.querySelector("input")?.value ?? "";
   }
 

@@ -20,7 +20,6 @@ export class Form extends Block<FormProps> {
       events,
     };
     super(props);
-    console.log(inputs);
   }
 
   public checkValidationInputs(): void {

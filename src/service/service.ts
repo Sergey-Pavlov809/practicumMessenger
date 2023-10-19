@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 enum METHODS {
   GET = "GET",
   POST = "POST",

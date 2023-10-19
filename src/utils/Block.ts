@@ -110,7 +110,6 @@ export default class Block<P extends Record<string, any> = any> {
     if (nextProps === null) {
       return;
     }
-    console.log(nextProps);
     Object.assign(this.props, nextProps);
     this._componentDidUpdate(this.props, nextProps);
   };
@@ -195,7 +194,6 @@ export default class Block<P extends Record<string, any> = any> {
         return typeof value === "function" ? value.bind(target) : value;
       },
       set(target, key: string, value) {
-        console.log(target, key);
         if (typeof key === "string" && key.startsWith("_")) {
           throw new Error("No access");
         }

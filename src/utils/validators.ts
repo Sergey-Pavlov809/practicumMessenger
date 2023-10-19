@@ -1,6 +1,4 @@
 export function loginValidator(login: string) {
-  console.log(login);
-
   if (!login) return "asdf";
 
   if (login.length < 3 || login.length > 20) {
@@ -20,8 +18,6 @@ export function loginValidator(login: string) {
 }
 
 export function passwordValidator(password: string) {
-  console.log(password);
-
   if (!password) return "false";
 
   if (password.length < 8 || password.length > 40) {

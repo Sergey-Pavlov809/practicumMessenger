@@ -35,14 +35,11 @@ export class Dialogs extends Block {
   constructor(props = {}) {
     super(props);
 
-    console.log(dialogues);
-
     this.onSubmit = this.onSubmit.bind(this);
   }
 
   private onSubmit(e: Event) {
     e.preventDefault();
-    console.log("onSubmit");
   }
 
   messageValidator(message: string) {

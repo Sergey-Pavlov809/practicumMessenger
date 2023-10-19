@@ -12,7 +12,6 @@ export class Registration extends Block {
   }
 
   loginValidator(login: string) {
-    console.log(login);
 
     if (!login) return "asdf";
 
@@ -33,7 +32,6 @@ export class Registration extends Block {
   }
 
   passwordValidator(password: string) {
-    console.log(password);
 
     if (!password) return "false";
 
@@ -159,10 +157,6 @@ export class Registration extends Block {
       for (const [key, value] of Object.entries(formData)) {
         form[key] = value;
       }
-
-      console.log(this.updateIsValidForm());
-
-      console.log(this.isFormValid());
 
       if (this.isFormValid()) {
         window.location.href = "/dialogs";

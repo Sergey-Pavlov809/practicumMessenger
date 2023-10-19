@@ -90,7 +90,6 @@ export class Auth extends Block {
   };
 
   private onSubmit(e: Event) {
-    console.log("call");
     e.preventDefault();
     if (e.target) {
       this.updateIsValidForm();
