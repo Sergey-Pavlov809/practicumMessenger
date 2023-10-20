@@ -4,7 +4,13 @@ import Block from "./../../utils/Block";
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
 import { Form } from "../../components/Form";
-import { loginValidator, nameValidator, phoneValidator, emailValidator, passwordValidator } from "../../utils/validators";
+import { 
+  loginValidator,
+  nameValidator, 
+  phoneValidator, 
+  emailValidator, 
+  passwordValidator 
+} from "../../utils/validators";
 
 export class Registration extends Block {
   public constructor(props = {}) {
