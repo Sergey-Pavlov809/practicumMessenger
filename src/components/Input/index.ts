@@ -5,7 +5,11 @@ import "./Input.less";
 interface TProps {
   name: string;
   label?: string;
-  events?: Record<string, (args: unknown) => void>;
+  events?: {
+    blur?: (e:KeyboardEvent) => void,
+    focus?: (e:KeyboardEvent) => void;
+    onfocus?: (e:KeyboardEvent) => void;
+  },
   placeholder?: string;
   error?: string;
   className?: string;

@@ -11,7 +11,7 @@ export default class Block<P extends Record<string, any> = any> {
     FLOW_CDM: "flow:component-did-mount",
     FLOW_CDU: "flow:component-did-update",
     FLOW_RENDER: "flow:render",
-  };
+  } as const;;
   protected children: Record<string, Block<any> | Block<any>[]>;
   public id = nanoid(6);
   public props: P;
@@ -29,6 +29,27 @@ export default class Block<P extends Record<string, any> = any> {
     this._registerEvents(eventBus);
     eventBus.emit(Block.EVENTS.INIT);
   }
+
+  private _removeEvents() {
+    const { events } = this.props;
+
+    if (events != null) {
+        Object.keys(events).forEach((eventName) => {
+            this._element?.removeEventListener(eventName, events[eventName]);
+        });
+    }
+}
+
+  protected removeEvents() {
+    this._removeEvents();
+    Object.keys(this.children).forEach((child) => {
+        if (Array.isArray(this.children[child])) {
+            (this.children[child] as Block<P>[]).forEach((ch) => ch.removeEvents());
+        } else {
+            (this.children[child] as Block<P>).removeEvents();
+        }
+    });
+}
 
   private _getChildrenAndProps(childrenAndProps: P): {
     props: P;
@@ -56,11 +77,14 @@ export default class Block<P extends Record<string, any> = any> {
   private _addEvents() {
     const { events } = this.props;
 
+    console.log( this._element)
+
     if (events != null) {
       Object.keys(events).forEach((eventName) => {
-        this._element?.addEventListener(eventName, events[eventName]);
+        this._element?.querySelector("input")?.addEventListener(eventName, events[eventName]);
       });
     }
+    console.log( this._element)
   }
 
   private _registerEvents(eventBus: EventBus) {

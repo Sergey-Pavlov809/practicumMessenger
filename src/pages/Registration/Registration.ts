@@ -4,6 +4,7 @@ import Block from "./../../utils/Block";
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
 import { Form } from "../../components/Form";
+import { loginValidator, nameValidator, phoneValidator, emailValidator, passwordValidator } from "../../utils/validators";
 
 export class Registration extends Block {
   public constructor(props = {}) {
@@ -11,66 +12,7 @@ export class Registration extends Block {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  loginValidator(login: string) {
 
-    if (!login) return "asdf";
-
-    if (login.length < 3 || login.length > 20) {
-      return "Некорректная длинна";
-    }
-
-    const regex = /^[a-zA-Z0-9_-]+$/;
-    if (!regex.test(login)) {
-      return "Содержит недопустимые символы";
-    }
-
-    if (/^\d+$/.test(login)) {
-      return "Содержит недопустимые символы";
-    }
-
-    return "";
-  }
-
-  passwordValidator(password: string) {
-
-    if (!password) return "false";
-
-    if (password.length < 8 || password.length > 40) {
-      return "Некорректная длинна";
-    }
-
-    if (password.toLocaleLowerCase() === password)
-      return "Должна быть хоты бы одна большая буква";
-
-    return "";
-  }
-
-  nameValidator(name: string) {
-    const regex = /^[А-ЯЁA-Z][А-ЯЁA-Zа-яёa-z\-]*$/;
-
-    if (!regex.test(name)) {
-      return "Некорректное имя";
-    }
-
-    return "";
-  }
-
-  emailValidator(email: string): string {
-    const emailPattern: RegExp =
-      /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-
-    if (!emailPattern.test(email)) return "Некорректный емэйл";
-
-    return "";
-  }
-
-  phoneValidator(phone: string): string {
-    const pattern: RegExp = /^\+?\d{10,15}$/;
-
-    if (!pattern.test(phone)) return "Некорректный номер";
-
-    return "";
-  }
 
   protected init() {
     const regInputs = [
@@ -80,7 +22,7 @@ export class Registration extends Block {
         type: "text",
         placeholder: "Логин",
         className: "form-group",
-        checkValidation: this.loginValidator,
+        checkValidation: loginValidator,
       }),
       new Input({
         name: "first_name",
@@ -88,7 +30,7 @@ export class Registration extends Block {
         type: "text",
         placeholder: "Введите имя",
         className: "form-group",
-        checkValidation: this.nameValidator,
+        checkValidation: nameValidator,
       }),
       new Input({
         name: "second_name",
@@ -96,7 +38,7 @@ export class Registration extends Block {
         placeholder: "Введите фамилию",
         type: "text",
         className: "form-group",
-        checkValidation: this.nameValidator,
+        checkValidation: nameValidator,
       }),
       new Input({
         name: "phone",
@@ -104,7 +46,7 @@ export class Registration extends Block {
         placeholder: "Введите телефон",
         type: "text",
         className: "form-group",
-        checkValidation: this.phoneValidator,
+        checkValidation: phoneValidator,
       }),
       new Input({
         name: "email",
@@ -112,7 +54,7 @@ export class Registration extends Block {
         placeholder: "Введите почту",
         type: "text",
         className: "form-group",
-        checkValidation: this.emailValidator,
+        checkValidation: emailValidator,
       }),
       new Input({
         name: "password",
@@ -120,7 +62,7 @@ export class Registration extends Block {
         placeholder: "Введите пароль",
         type: "password",
         className: "form-group",
-        checkValidation: this.passwordValidator,
+        checkValidation: passwordValidator,
       }),
     ];
 

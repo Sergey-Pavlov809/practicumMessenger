@@ -5,6 +5,7 @@ import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
 import { Form } from "../../components/Form";
 import { Link } from "../../components/Link";
+import { loginValidator, passwordValidator } from "../../utils/validators";
 
 export class Auth extends Block {
   public constructor(props = {}) {
@@ -12,38 +13,6 @@ export class Auth extends Block {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  loginValidator(login: string) {
-    if (!login) return "НЕ введен логин";
-
-    if (login.length < 3 || login.length > 20) {
-      return "Некорректная длинна";
-    }
-
-    const regex = /^[a-zA-Z0-9_-]+$/;
-    if (!regex.test(login)) {
-      return "Содержит недопустимые символы";
-    }
-
-    if (/^\d+$/.test(login)) {
-      return "Содержит недопустимые символы";
-    }
-
-    return "";
-  }
-
-  passwordValidator(password: string) {
-    if (!password) return "false";
-
-    if (password.length < 8 || password.length > 40) {
-      return "Некорректная длинна";
-    }
-
-    if (password.toLocaleLowerCase() === password) {
-      return "Должна быть хоты бы одна большая буква";
-    }
-
-    return "";
-  }
 
   protected init() {
     (this.children.form = new Form({
@@ -54,13 +23,13 @@ export class Auth extends Block {
           type: "text",
           placeholder: "Логин",
           className: "form-group",
-          checkValidation: this.loginValidator,
+          checkValidation: loginValidator,
         }),
         new Input({
           name: "password",
           label: "Пароль",
           type: "password",
-          checkValidation: this.passwordValidator,
+          checkValidation: passwordValidator,
         }),
       ],
       events: {

@@ -62,18 +62,6 @@ export class Dialogs extends Block {
     }
   }
 
-  messageValidator(message: string) {
-    if (!message) return "";
-
-    if (message.length === 0) {
-      return "Пустое сообщение";
-    }
-
-    console.log("asdf")
-
-    return "";
-  }
-
   protected init() {
     (this.children.form = new Form({
       inputs: [
@@ -81,7 +69,7 @@ export class Dialogs extends Block {
           name: "message",
           type: "text",
           placeholder: "сообщение",
-          checkValidation: this.messageValidator,
+          checkValidation: messageValidator,
         }),
       ],
       events: {
@@ -98,3 +86,7 @@ export class Dialogs extends Block {
     return this.compile(tmpl, this.props);
   }
 }
+function messageValidator(args: string): string | null {
+  throw new Error("Function not implemented.");
+}
+

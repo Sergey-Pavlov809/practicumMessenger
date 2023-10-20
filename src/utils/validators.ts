@@ -1,5 +1,5 @@
-export function loginValidator(login: string) {
-  if (!login) return "asdf";
+export function loginValidator(login: string): string {
+  if (!login) return "Не введен логин";
 
   if (login.length < 3 || login.length > 20) {
     return "Некорректная длинна";
@@ -17,7 +17,7 @@ export function loginValidator(login: string) {
   return "";
 }
 
-export function passwordValidator(password: string) {
+export function passwordValidator(password: string): string {
   if (!password) return "false";
 
   if (password.length < 8 || password.length > 40) {
@@ -30,7 +30,7 @@ export function passwordValidator(password: string) {
   return "";
 }
 
-export function nameValidator(name: string) {
+export function nameValidator(name: string): string {
   const regex = /^[А-ЯЁA-Z][А-ЯЁA-Zа-яёa-z\-]*$/;
 
   if (!regex.test(name)) {
