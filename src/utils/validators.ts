@@ -56,3 +56,9 @@ export function phoneValidator(phone: string): string {
 
   return "";
 }
+
+export function messageValidator(message: string): string {
+  if (message.length === 0) return "пустое сообщение";
+
+  return "";
+}

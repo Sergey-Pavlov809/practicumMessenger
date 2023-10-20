@@ -65,6 +65,7 @@ export class Auth extends Block {
 
       if (this.isFormValid()) {
         window.location.href = "/dialogs";
+        this.removeEvents();
       }
     }
   }

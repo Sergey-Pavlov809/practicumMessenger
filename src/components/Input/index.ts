@@ -1,6 +1,7 @@
 import Block from "../../utils/Block";
 import { tmpl } from "./Input.tmpl";
 import "./Input.less";
+import { replaceAll } from "../../utils/replaceAll";
 
 interface TProps {
   name: string;
@@ -57,7 +58,7 @@ export class Input extends Block<TProps> {
           ...this.props,
           value: this.value,
           error: undefined,
-          className: `${this.props.className}`,
+          className: replaceAll(`${this.props.className}`,"error",""),
         });
       }
     }

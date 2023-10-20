@@ -4,6 +4,7 @@ import Block from "../../utils/Block";
 import { Button } from "../../components/Button";
 import { Form } from "../../components/Form";
 import { Input } from "../../components/Input";
+import { messageValidator } from "../../utils/validators";
 
 const dialogues = ["Сережа", "выф", "орлеп", "asd"];
 
@@ -85,8 +86,5 @@ export class Dialogs extends Block {
   render() {
     return this.compile(tmpl, this.props);
   }
-}
-function messageValidator(args: string): string | null {
-  throw new Error("Function not implemented.");
 }
 
