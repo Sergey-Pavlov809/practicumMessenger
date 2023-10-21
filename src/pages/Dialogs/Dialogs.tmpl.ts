@@ -15,7 +15,7 @@ export const tmpl = `
   <div class="dialogues">
     <ul>
       {{#each dialogues}}
-        <li class="dialogue" data-id="{{id}}">{{name}}</li>
+        <li class="dialogue" data-id="{{id}}">{{{this}}}</li>
       {{/each}}
     </ul>
     <div class="conversation">
@@ -33,8 +33,7 @@ export const tmpl = `
       <p>Диалог не выбран</p>
     {{/if}}
     <div class="message-input">
-    <input type="text" class="input-field" id="message" name="message" placeholder="Введите сообщение" value="{{message}}">
-    <button class="send-button">Отправить</button>
+    {{{form}}}
   </div>
   </div>
   </div>

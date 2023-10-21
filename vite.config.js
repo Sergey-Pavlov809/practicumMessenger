@@ -7,6 +7,7 @@ export default defineConfig({
     handlebars(),
     {
       name: "less",
+      // eslint-disable-next-line consistent-return
       async transform(code, id) {
         if (id.endsWith(".less")) {
           const { css } = await less.render(code);

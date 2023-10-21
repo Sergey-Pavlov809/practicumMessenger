@@ -1,8 +1,12 @@
-import Handlebars from "handlebars";
 import { tmpl } from "./Dialogs.tmpl";
 import "./Dialogs.less";
+import Block from "../../utils/Block";
+import { Button } from "../../components/Button";
+import { Form } from "../../components/Form";
+import { Input } from "../../components/Input";
+import { messageValidator } from "../../utils/validators";
 
-const dialogues = [{ name: "Сережа" }, { name: "qwe" }, { name: "zxc" }];
+const dialogues = ["Сережа", "выф", "орлеп", "asd"];
 
 const messages = [
   {
@@ -28,6 +32,59 @@ const selectedDialogue = {
   messages,
 };
 
-export const Dialogs = () => {
-  return Handlebars.compile(tmpl)({ dialogues, selectedDialogue });
-};
+export class Dialogs extends Block {
+  constructor(props = {}) {
+    super(props);
+
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  isFormValid = (): boolean => {
+    if (this.children.form instanceof Form) {
+      return this.children.form.isFormValid();
+    }
+
+    return false;
+  };
+
+  updateIsValidForm = (): void => {
+    if (this.children.form instanceof Form) {
+      this.children.form.checkValidationInputs();
+    }
+  };
+
+  private onSubmit(e: Event) {
+    e.preventDefault();
+
+    this.updateIsValidForm();
+
+    if (this.isFormValid()) {
+      window.location.href = "/dialogs";
+    }
+  }
+
+  protected init() {
+    (this.children.form = new Form({
+      inputs: [
+        new Input({
+          name: "message",
+          type: "text",
+          placeholder: "сообщение",
+          checkValidation: messageValidator,
+        }),
+      ],
+      events: {
+        submit: (e: Event) => this.onSubmit(e),
+      },
+      button: new Button({ label: "Send!", type: "submit" }),
+      className: "message-input",
+    })),
+    (this.props.selectedDialogue = selectedDialogue),
+    (this.props.dialogues = dialogues);
+  }
+
+  render() {
+    return this.compile(tmpl, this.props);
+  }
+}
+

@@ -1,0 +1,13 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-recommended-less"],
+  "plugins": ["stylelint-order", "stylelint-no-unsupported-browser-features"],
+  "rules": {
+    "at-rule-no-unknown": null,
+    "selector-pseudo-element-no-unknown": null,
+    "block-no-empty": null,
+    "color-named": "never",
+    "color-no-hex": null,
+    "order/properties-order": [],
+    "selector-class-pattern": null
+  }
+}

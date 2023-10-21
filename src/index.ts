@@ -5,19 +5,22 @@ import { Error500 } from "./pages/Error500/Error500";
 import { Profile } from "./pages/Profile/Profile";
 import { Registration } from "./pages/Registration/Registration";
 
-const ROUTES: Record<string, string> = {
-  "/dialogs": Dialogs(),
-  "/registration": Registration(),
-  "/profile": Profile(),
-  "/server-error": Error500(),
-  "/": Auth(),
+const ROUTES_NEW: Record<string, any> = {
+  "/": new Auth(),
+  "/dialogs": new Dialogs(),
+  "/profile": new Profile(),
+  "/register": new Registration(),
+  "/server-error": new Error500(),
 };
 
 window.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("app");
 
+  const component = ROUTES_NEW[window.location.pathname] || new Error400({});
+
   if (root) {
-    const component = ROUTES[window.location.pathname] || Error400()({});
-    root.innerHTML = component;
+    root.append(component.element!);
+
+    component.dispatchComponentDidMount();
   }
 });
