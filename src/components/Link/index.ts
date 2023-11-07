@@ -1,20 +1,27 @@
-import Block from "../../utils/Block";
-import { tmpl } from "./Link.tmpl";
+import Handlebars from "handlebars";
 
-//type="text" className="form-control" id="username" name="username" 
-interface TLink {
-  label: string;
-  url?: string;
-  className?: string;
-  events?: Record<string, (args: any) => void>;
+import { tmpl } from "./Link.tmpl";
+import Block from "../../core/Block";
+import { withRouter } from "../../routing/withRouter";
+import "./Link.less";
+
+interface LinkProps {
+  className?: string,
+  href: string,
+  label: string,
+  events?: { click: (e: Event) => void };
 }
 
-export class Link extends Block<TLink> {
-  constructor(props: TLink) {
-    super(props);
+const linkButton = Handlebars.compile(tmpl);
+
+export class BaseLink extends Block {
+  constructor(props: LinkProps) {
+    super({ ...props });
   }
 
   render() {
-    return this.compile(tmpl, this.props);
+    return this.compile(linkButton, this.props);
   }
 }
+
+export const Link = withRouter(BaseLink);

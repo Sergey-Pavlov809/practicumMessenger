@@ -1,17 +1,13 @@
 export const tmpl = `
-<div class="input">
-    <label class="input__label" for={{name}}>{{label}}</label>
-    <input 
-        type='{{type}}'
-        value='{{value}}'
-        id={{name}} type="text"
-        name={{name}}
-        placeholder={{placeholder}}
-        class="input {{className}}"
-    >
-    
-    {{#if error}}
-        <p class="error">{{error}}</p>
-    {{/if}}
+<div class="input__container {{ inputContainerClass }}">
+<label class="input__label" for={{name}}>{{label}}</label>
+<input
+    value='{{value}}'
+    name={{name}}
+    label='{{label}}'
+    type={{type}}
+    class="input {{className}}"
+>
+ <span class="error">{{error}}</span>
 </div>
 `;

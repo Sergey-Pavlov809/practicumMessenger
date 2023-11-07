@@ -1,74 +1,63 @@
-import Block from "../../utils/Block";
-import { tmpl } from "./Input.tmpl";
-import "./Input.less";
-import { replaceAll } from "../../utils/replaceAll";
+import Handlebars from "handlebars";
 
-interface TProps {
-  name: string;
-  label?: string;
-  events?: {
-    blur?: (e:KeyboardEvent) => void,
-    focus?: (e:KeyboardEvent) => void;
-    onfocus?: (e:KeyboardEvent) => void;
-  },
-  placeholder?: string;
-  error?: string;
-  className?: string;
-  value?: string;
-  type?: string;
-  checkValidation?: (args: string) => string | null;
+import Block from "../../core/Block";
+import "./Input.less";
+import { Button } from "../Button";
+import { StoreApp } from "../../core/Store";
+import { sendMessage } from "../../controllers/MessagesControllers";
+import { getChats } from "../../controllers/ChatsControllers";
+import { tmpl } from "./input.tmpl";
+interface InputProps {
+  value?: string,
+  error?: string,
+  name?: string,
+  label?: string,
+  type?: string,
+  className?: string,
+  inputContainerClass?: string,
+  events?: { 
+    focusin?: (e: Event) => void; 
+    focusout?: (e: Event) => void;
+    change?: (e: Event) => void };
 }
 
-export class Input extends Block<TProps> {
-  constructor(props: TProps) {
-    super({
-      value: "",
-      error: undefined,
-      className: "",
-      placeholder: "",
+const input = Handlebars.compile(tmpl);
+
+export class Input extends Block {
+  constructor(props: InputProps) {
+
+    super({ ...props });
+  }
+
+  init() {
+    this.children.sendMessageButton = new Button({
+      className: "send_message_button",
       events: {
-        blur: () => {
-          this.checkValidation();
+        click: (evt) => {
+          this.onSubmit(evt);
         },
       },
-      ...props,
     });
   }
 
-  isInputValid() {
-    if (this.props.checkValidation != null) {
-      return Boolean(!this.props.checkValidation(this.value));
-    }
+  onSubmit(evt: Event) {
+    evt.preventDefault();
+    const inputMessage = document.querySelector(".input_message") as HTMLInputElement;
 
-    return true;
-  }
+    let { value } = inputMessage;
 
-  checkValidation() {
-    if (this.props.checkValidation != null) {
-      const error = this.props.checkValidation(this.value);
-      if (Number(error?.length) > 0 && error) {
-        this.setProps({
-          ...this.props,
-          value: this.value,
-          error,
-          className: `${this.props.className} error`,
-        });
-      } else {
-        this.setProps({
-          ...this.props,
-          value: this.value,
-          error: undefined,
-          className: replaceAll(`${this.props.className}`,"error",""),
-        });
-      }
+    if (value.length > 0) {
+      const chatId = StoreApp.getState().selectedChat!.id!;
+
+      sendMessage(chatId, value);
+
+      getChats().finally(() => {
+        value = "";
+      });
     }
   }
 
-  get value() {
-    return this.element?.querySelector("input")?.value ?? "";
-  }
-
-  protected render() {
-    return this.compile(tmpl, this.props);
+  render() {
+    return this.compile(input, this.props);
   }
 }
