@@ -14,13 +14,13 @@ const addError = (
 ): void => {
   const errorElement = findInputError(input);
 
-  console.log(errorElement)
+ // console.log(errorElement)
 
   if (!error.verify && errorElement) {
     errorElement.textContent = error.message;
     errorElement?.classList.add("error_visible");
   } else {
-    console.log("remove")
+    //console.log("remove")
     errorElement?.classList.remove("error_visible");
   }
 };
@@ -29,7 +29,9 @@ const addError = (
 export const handleSubmit = (event: Event): any  => {
   event.preventDefault();
   const inputValue: any = {};
-  const inputList = document.querySelectorAll(".input");
+  const inputList = document.querySelectorAll(".input_field"); 
+
+  console.log(inputList)
 
   inputList.forEach((input: any) => {
     inputValue[input.name] = input.value;
@@ -60,7 +62,7 @@ export const blur = (event: Event): void => {
   const input = event.target as HTMLInputElement;
   const result = Validator.validate(input.name, input.value);
 
-  console.log(result)
+  //console.log(result)
 
   if (result) {
     addError(input, result);

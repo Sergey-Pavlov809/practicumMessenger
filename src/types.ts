@@ -1,4 +1,4 @@
-export interface IISignUpData {
+export interface ISignUpData {
   login: string;
   password: string;
 }

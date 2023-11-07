@@ -7,10 +7,3 @@ export const ERRORS = {
   PHONE: "Телефон введен неверно",
   MESSAGE: "Сообщение не должно быть пустым",
 };
-
-const credentials = [
-  {
-    username: "asdss",
-    password: "AAssd",
-  },
-];
