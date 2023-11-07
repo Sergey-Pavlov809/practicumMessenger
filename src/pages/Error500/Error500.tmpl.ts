@@ -1,5 +1,3 @@
-export const tmpl = `
-<div>
-    Злые грызуны атакуют сервера
-</div>
+export const Error500Tmpl = `
+    {{{ error }}}
 `;

@@ -1,5 +1,6 @@
 export const tmpl = `
 <div>
-    Что то пошло не так..............
+    {{{ error }}}
 </div>
+    
 `;

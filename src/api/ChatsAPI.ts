@@ -26,7 +26,7 @@ class Chats extends Api {
     });
   }
 
-  getChatUsers(id: number): Promise<unknown> {
+  getChatUser(id: number): Promise<unknown> {
     return this.http.get(`/${id}/users`, {
       headers: { "Content-Type": "application/json" },
     });

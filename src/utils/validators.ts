@@ -1,4 +1,5 @@
 export function loginValidator(login: string): string {
+  return ""
   if (!login) return "Не введен логин";
 
   if (login.length < 3 || login.length > 20) {
@@ -18,6 +19,7 @@ export function loginValidator(login: string): string {
 }
 
 export function passwordValidator(password: string): string {
+  return ""
   if (!password) return "false";
 
   if (password.length < 8 || password.length > 40) {
@@ -31,6 +33,7 @@ export function passwordValidator(password: string): string {
 }
 
 export function nameValidator(name: string): string {
+  return ""
   const regex = /^[А-ЯЁA-Z][А-ЯЁA-Zа-яёa-z\-]*$/;
 
   if (!regex.test(name)) {
@@ -41,6 +44,7 @@ export function nameValidator(name: string): string {
 }
 
 export function emailValidator(email: string): string {
+  return ""
   const emailPattern: RegExp =
     /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
@@ -50,6 +54,7 @@ export function emailValidator(email: string): string {
 }
 
 export function phoneValidator(phone: string): string {
+  return ""
   const pattern: RegExp = /^\+?\d{10,15}$/;
 
   if (!pattern.test(phone)) return "Некорректный номер";
@@ -58,6 +63,7 @@ export function phoneValidator(phone: string): string {
 }
 
 export function messageValidator(message: string): string {
+  return ""
   if (message.length === 0) return "пустое сообщение";
 
   return "";
