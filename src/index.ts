@@ -1,26 +1,40 @@
-import { Auth } from "./pages/Auth/Auth";
-import { Dialogs } from "./pages/Dialogs/Dialogs";
-import { Error400 } from "./pages/Error400/Error400";
-import { Error500 } from "./pages/Error500/Error500";
-import { Profile } from "./pages/Profile/Profile";
-import { Registration } from "./pages/Registration/Registration";
+import { Login } from "./pages/Auth";
+import { SignIn } from "./pages/Registration";
+import { Error500 } from "./pages/500";
+import { Error404 } from "./pages/404";
+import { Profile } from "./pages/profile";
+import { Chat } from "./pages/chat";
+import Router from "./routing/Router";
+import { StoreApp } from "./core/Store";
+import { getUserInfo } from "./controllers/AuthController";
 
-const ROUTES_NEW: Record<string, any> = {
-  "/": new Auth(),
-  "/dialogs": new Dialogs(),
-  "/profile": new Profile(),
-  "/register": new Registration(),
-  "/server-error": new Error500(),
-};
+document.addEventListener("DOMContentLoaded", async () => {
+  Router.use("/", Login);
+  Router.use("/signin", SignIn);
+  Router.use("/settings", Profile);
+  Router.use("/messenger", Chat);
+  Router.use("/error404", Error404);
+  Router.use("/error500", Error500);
 
-window.addEventListener("DOMContentLoaded", () => {
-  const root = document.getElementById("app");
+  StoreApp.on("changed", () => {});
 
-  const component = ROUTES_NEW[window.location.pathname] || new Error400({});
+  let isProtectedRoute = true;
 
-  if (root) {
-    root.append(component.element!);
+  if (
+    window.location.pathname === "/" ||
+    window.location.pathname === "/signin"
+  ) {
+    isProtectedRoute = false;
+  }
 
-    component.dispatchComponentDidMount();
+  try {
+    await getUserInfo();
+    Router.start();
+
+    if (!isProtectedRoute) Router.go("/messenger");
+  } catch (e) {
+    Router.start();
+
+    if (isProtectedRoute) Router.go("/");
   }
 });
