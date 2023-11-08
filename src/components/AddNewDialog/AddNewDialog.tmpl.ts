@@ -5,5 +5,7 @@ export const tmpl = `
             {{{ inputAddNewDialog }}}
             {{{ buttonCreateDialog }}}
             {{{ buttonClose }}}
+
+
            </form>
       </div>`;
