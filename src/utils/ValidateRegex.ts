@@ -13,11 +13,11 @@ export const ValidateRegex = {
     pattern: /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,40}$/,
     error: ERRORS.PASSWORD,
   },
-  newPassword: {
+  newIPassword: {
     pattern: /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,40}$/,
     error: ERRORS.PASSWORD,
   },
-  oldPassword: {
+  oldIPassword: {
     pattern: /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,40}$/,
     error: ERRORS.PASSWORD,
   },

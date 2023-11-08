@@ -5,13 +5,13 @@ import { changeUserAvatar } from "../../controllers/UsersControllers";
 import { withStore } from "../../core/withStore";
 
 import "./Avatar.less";
-import { Input } from "../Input";
-import pen from "./../../../static/icons/pen.png";
+import { Input } from "../input";
+import pen from "./../../../static/icons/pen.svg";
 import { tmpl } from "./avatar.tmpl";
 
 const avatar = Handlebars.compile(tmpl);
 
-class AvatarBase extends Block {
+class AvatarComponent extends Block {
   constructor(props: {}) {
     super({ pen, ...props });
   }
@@ -19,7 +19,7 @@ class AvatarBase extends Block {
   init() {
     this.children.inputAvatar = new Input({
       name: "avatar",
-      className: "",
+      inputContainerClass: "avatar__input_change",
       type: "file",
       events: {
         change: (e) => this.changeImg(e),
@@ -46,4 +46,4 @@ class AvatarBase extends Block {
   }
 }
 
-export const Avatar = withStore(AvatarBase);
+export const Avatar = withStore(AvatarComponent);

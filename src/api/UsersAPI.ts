@@ -1,12 +1,12 @@
 import { Api } from "./api";
-import { Profile, ISetNewPassword } from "../types";
+import { IUserProfile, IPassword } from "../types";
 
 class Users extends Api {
   constructor() {
     super("/user");
   }
 
-  putProfile(data: Profile): Promise<unknown> {
+  putIUserProfile(data: IUserProfile): Promise<unknown> {
     return this.http.put("/profile", {
       data,
       headers: { "Content-Type": "application/json" },
@@ -19,7 +19,7 @@ class Users extends Api {
     });
   }
 
-  putUserPassword(data: ISetNewPassword): Promise<unknown> {
+  putUserIPassword(data: IPassword): Promise<unknown> {
     return this.http.put("/password", {
       data,
       headers: { "Content-Type": "application/json" },

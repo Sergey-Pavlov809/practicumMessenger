@@ -1,5 +1,5 @@
-import { User, ChatList, ChatUser } from "../types";
-import { IMessage } from "../types";
+import { User, DialogList, DialogUsers } from "../types";
+import { Message } from "../types";
 import EventBus from "./EventBus";
 
 type Dispatch<State> = (nextStateOrAction: Partial<State> | Action<State>, payload?: any) => void;
@@ -38,27 +38,27 @@ class Store<State extends Record<string, any>> extends EventBus {
 
 interface DefaultState {
   user: User | Record<string, any>;
-  chatList: ChatList[] | [];
-  chatUsers: ChatUser[] | [];
-  messageList: IMessage[] | Record<string | number, any>;
-  selectedChat: {
+  dialogList: DialogList[] | [];
+  dialogUsers: DialogUsers[] | [];
+  messageList: Message[] | Record<string | number, any>;
+  selectedDialog: {
     title?: string;
     id?: number;
   };
   foundUsers: User[] | [];
   popups: Record<string, any> | {};
-  openedNewChat: boolean
+  openedNewDialog: boolean
 }
 
 const defaultState: DefaultState = {
   user: {},
-  chatList: [],
-  chatUsers: [],
+  dialogList: [],
+  dialogUsers: [],
   messageList: {},
-  selectedChat: {},
+  selectedDialog: {},
   foundUsers: [],
   popups: {},
-  openedNewChat: false,
+  openedNewDialog: false,
 };
 
 export const StoreApp = new Store(defaultState);

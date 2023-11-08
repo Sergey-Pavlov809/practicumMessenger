@@ -1,9 +1,9 @@
 import Handlebars from "handlebars";
 
 import Block from "../../core/Block";
+import { LinkButton } from "../linkButton";
 
 import "./Error.less";
-import { Link } from "../Link";
 import { tmpl } from "./error.tmpl";
 
 interface ErrorProps {
@@ -16,13 +16,13 @@ const error = Handlebars.compile(tmpl);
 export class ErrorBlock extends Block {
   constructor(props: ErrorProps) {
 
-    const back = new Link({
-      label:"Назад к чатам",
+    const linkButton = new LinkButton({
+      linkText:"Назад к диалогам",
       href: "/",
-      className: "link",
+      linkClass: "link_purple",
     });
 
-    super({ back, ...props });
+    super({ linkButton, ...props });
   }
 
   render() {

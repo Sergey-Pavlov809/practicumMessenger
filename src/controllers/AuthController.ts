@@ -1,5 +1,5 @@
 import { AuthAPI } from "../api/AuthAPI";
-import { User, IISignUpData, ISignUpData } from "../types";
+import { User, ISignIn, ISignUp } from "../types";
 
 import Router from "../routing/Router";
 import { StoreApp } from "../core/Store";
@@ -11,25 +11,25 @@ export const getUserInfo = async () => {
   StoreApp.dispatch({ user: userData });
 };
 
-export const signIn = async (data: IISignUpData) => {
+export const signIn = async (data: ISignIn) => {
   try {
     await AuthAPI.postSignIn(data);
     getUserInfo().then();
 
     Router.go("/messenger");
   } catch (e: any) {
-    console.error("error", e);
+    console.error("sign in", e);
   }
 };
 
-export const signUp = async (data: ISignUpData) => {
+export const signUp = async (data: ISignUp) => {
   try {
     await AuthAPI.postSignUp(data);
     getUserInfo().then();
 
     Router.go("/messenger");
   } catch (e: any) {
-    console.error("error", e.message);
+    console.error("sign up", e.message);
   }
 };
 
@@ -41,6 +41,6 @@ export const logout = async () => {
     StoreApp.dispatch({ user: {} });
     Router.go("/");
   } catch (e: any) {
-    console.error("error", e.message);
+    console.error("logout", e.message);
   }
 };

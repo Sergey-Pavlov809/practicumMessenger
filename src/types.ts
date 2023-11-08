@@ -1,9 +1,9 @@
-export interface ISignUpData {
+export interface ISignIn {
   login: string;
   password: string;
 }
 
-export interface ISignUpData {
+export interface ISignUp {
   first_name: string;
   second_name: string;
   login: string;
@@ -12,12 +12,12 @@ export interface ISignUpData {
   phone: string;
 }
 
-export interface UsersToChat {
+export interface Users {
   users: number[];
-  chatId: number;
+  dialogId: number;
 }
 
-export interface ChatList {
+export interface DialogList {
   id: number;
   title: string;
   avatar: string;
@@ -29,7 +29,7 @@ export interface ChatList {
   };
 }
 
-export interface ChatUser {
+export interface DialogUsers {
   id: number;
   first_name: string;
   second_name: string;
@@ -52,25 +52,24 @@ export interface User {
   avatar: string;
 }
 
-export interface Profile {
+export interface IUserProfile {
   first_name: string;
   second_name: string;
   display_name: string;
   login: string;
   email: string;
   phone: string;
-  oldPassword: string;
-  newPassword: string;
+  oldIPassword: string;
+  newIPassword: string;
 }
 
-
-export interface ISetNewPassword {
-  oldPassword: string;
-  newPassword: string;
+export interface IPassword {
+  oldIPassword: string;
+  newIPassword: string;
 }
 
-export interface IMessage {
-  chat_id: number;
+export interface Message {
+  dialog_id: number;
   time: string;
   type: string;
   user_id: number;

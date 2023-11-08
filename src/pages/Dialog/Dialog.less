@@ -1,0 +1,48 @@
+
+
+.sidebar, .dialog {
+  transition: all .3s ease-out;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__nav {
+    overflow-y: scroll;
+    margin: 12px 10px;
+  }
+
+  &__ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__main {
+    margin: 12px 10px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__link {
+    width: 47px;
+    height: 47px;
+    margin-right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightblue;
+    border-radius: 6px;
+  }
+}

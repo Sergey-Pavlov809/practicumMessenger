@@ -1,11 +1,12 @@
 import Handlebars from "handlebars";
+
+import { tmpl } from "./Button.tmpl";
 import Block from "../../core/Block";
 import "./Button.less";
-import { tmpl } from "./Button.tmpl";
 
 interface ButtonProps {
   className?: string,
-  label?: string,
+  text?: string,
   type?: string,
   events?: { click: (e: Event) => void };
 }

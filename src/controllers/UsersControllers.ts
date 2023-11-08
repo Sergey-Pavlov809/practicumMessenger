@@ -1,17 +1,17 @@
 import { UsersApi } from "../api/UsersAPI";
-import { ISetNewPassword, User, Profile } from "../types";
+import { IPassword, User, IUserProfile } from "../types";
 import Router from "../routing/Router";
 import { StoreApp } from "../core/Store";
 
-export const changeProfile = async (data: Profile) => {
+export const changeIUserProfile = async (data: IUserProfile) => {
   try {
-    const user = await UsersApi.putProfile(data) as User;
+    const user = await UsersApi.putIUserProfile(data) as User;
 
     StoreApp.dispatch({ user: user });
     Router.go("/settings");
 
   } catch (e: any) {
-    console.error("error", e);
+    console.error("change user profile", e);
   }
 };
 
@@ -21,15 +21,15 @@ export const changeUserAvatar = async (data: FormData) => {
     StoreApp.dispatch({ user: user });
 
   } catch (e: any) {
-    console.error("error", e);
+    console.error("change user avatar", e);
   }
 };
 
-export const changeUserPassword = async (data: ISetNewPassword) => {
+export const changeUserIPassword = async (data: IPassword) => {
   try {
-    await UsersApi.putUserPassword(data);
+    await UsersApi.putUserIPassword(data);
   } catch (e: any) {
-    console.error("error", e);
+    console.error("change user password", e);
   }
 };
 

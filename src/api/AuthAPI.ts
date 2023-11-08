@@ -1,19 +1,19 @@
 import { Api } from "./api";
-import { ISignUpData, ISignUpData } from "../types";
+import { ISignIn, ISignUp } from "../types";
 
 class Auth extends Api {
   constructor() {
     super("/auth");
   }
 
-  postSignUp(data: ISignUpData): Promise<unknown> {
+  postSignUp(data: ISignUp): Promise<unknown> {
     return this.http.post("/signup", {
       data,
       headers: { "Content-Type": "application/json" },
     });
   }
 
-  postSignIn(data: ISignUpData): Promise<unknown> {
+  postSignIn(data: ISignIn): Promise<unknown> {
     return this.http.post("/signin", {
       data,
       headers: { "Content-Type": "application/json" },

@@ -1,0 +1,20 @@
+import Handlebars from "handlebars";
+
+import "./styles.less";
+import Block from "../../core/Block";
+import { SignInTmpl } from "./signin.tmpl";
+import { SignInContent } from "../../components/signInContent";
+
+const signIn = Handlebars.compile(SignInTmpl);
+
+export class SignIn extends Block {
+  constructor(props: {}) {
+    const signInContent = new SignInContent({});
+
+    super({ signInContent, title: "Регистрация", ...props });
+  }
+
+  render() {
+    return this.compile(signIn, this.props);
+  }
+}
