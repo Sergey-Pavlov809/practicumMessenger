@@ -1,3 +1,3 @@
-export const Error500Tmpl = `
+export const tmpl = `
     {{{ error }}}
 `;

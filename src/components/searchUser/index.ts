@@ -14,14 +14,14 @@ export class SearchUser extends Block {
   init() {
     this.children.button = new Button({
       text: this.props.btnName,
-      className: "popup__add_user_button",
+      className: "modal__add_user_button",
       events: {
         click: (evt) => {
           evt.preventDefault();
 
           const data = {
             users: [this.props!.id!],
-            dialogId: StoreApp.getState().selectedDialog!.id!,
+            chatId: StoreApp.getState().selectedDialog!.id!,
           };
 
           if (this.props.btnName === "Добавить") {

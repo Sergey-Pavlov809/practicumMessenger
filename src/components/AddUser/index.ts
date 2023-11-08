@@ -7,28 +7,28 @@ import { Button } from "../Button";
 import { SearchUser } from "../searchUser";
 import { Input } from "../input";
 import "./styles.less";
-import { tmpl } from "./popupAddUser.tmpl";
+import { tmpl } from "./AddUser.tmpl";
 
-const popupAddUser = Handlebars.compile(tmpl);
+const modalAddUser = Handlebars.compile(tmpl);
 
-class PopupAddUserComponent extends Block {
+class AddUserComponent extends Block {
   init() {
     this.children.inputSearchUser = new Input({
       type: "text",
       name: "searchUser",
       placeholder: "Введите логин",
-      inputClass: "popup__input_search_user",
+      inputClass: "modal__input_search_user",
     });
 
     this.children.buttonSearch = new Button({
       text: "Поиск",
       type: "submit",
-      className: "popup__button_search",
+      className: "modal__button_search",
       events: {
         click: (evt) => {
           evt.preventDefault();
 
-          const input = document.querySelector(".popup__input_search_user") as HTMLInputElement;
+          const input = document.querySelector(".modal__input_search_user") as HTMLInputElement;
           const { value } = input;
 
           if (value.length > 1) {
@@ -48,14 +48,14 @@ class PopupAddUserComponent extends Block {
 
     this.children.buttonClose = new Button({
       type: "button",
-      className: "popup__close",
+      className: "modal__close",
       events: {
         click: (evt) => {
           evt.preventDefault();
 
           this.setProps({ isSearch: false });
 
-          StoreApp.dispatch({ popups: { addUsers: false } });
+          StoreApp.dispatch({ modals: { addUsers: false } });
         },
       },
     });
@@ -73,8 +73,8 @@ class PopupAddUserComponent extends Block {
   }
 
   render() {
-    return this.compile(popupAddUser, this.props);
+    return this.compile(modalAddUser, this.props);
   }
 }
 
-export const PopupAddUser = withStore(PopupAddUserComponent);
+export const AddUser = withStore(AddUserComponent);

@@ -1,4 +1,4 @@
-export const UserInfoDialogTmpl = `
+export const tmpl = `
 <li class="user">
 <div class="user__logo"></div>
 <div class="user__info">

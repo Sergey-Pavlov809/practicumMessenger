@@ -11,7 +11,7 @@ export const tmpl = `
       {{/each}}
    {{else}}
    <div class="dialog__unselected">
-   <  p>Напишите первое сообщение</>
+   <p>Напишите первое сообщение</p>
    </div>
    {{/if}}
 </main>

@@ -46,7 +46,7 @@ interface DefaultState {
     id?: number;
   };
   foundUsers: User[] | [];
-  popups: Record<string, any> | {};
+  modals: Record<string, any> | {};
   openedNewDialog: boolean
 }
 
@@ -57,7 +57,7 @@ const defaultState: DefaultState = {
   messageList: {},
   selectedDialog: {},
   foundUsers: [],
-  popups: {},
+  modals: {},
   openedNewDialog: false,
 };
 

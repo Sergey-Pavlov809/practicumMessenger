@@ -5,20 +5,20 @@ import { withStore } from "../../core/withStore";
 import { Button } from "../Button";
 import { SearchUser } from "../searchUser";
 import "./styles.less";
+import { tmpl } from "./DeleteUser.tmpl";
 
-import { tmpl } from "./popupDeleteUser.tmpl";
 
-const popupDeleteUser = Handlebars.compile(tmpl);
+const modalDeleteUser = Handlebars.compile(tmpl);
 
-class PopupDeleteUserBase extends Block {
+class DeleteUserBase extends Block {
   init() {
     this.children.buttonClose = new Button({
       type: "button",
-      className: "popup__close",
+      className: "modal__close",
       events: {
         click: (evt) => {
           evt.preventDefault();
-          StoreApp.dispatch({ popups: { deleteUsers: false } });
+          StoreApp.dispatch({ modals: { deleteUsers: false } });
         },
       },
     });
@@ -36,8 +36,8 @@ class PopupDeleteUserBase extends Block {
   }
 
   render() {
-    return this.compile(popupDeleteUser, this.props);
+    return this.compile(modalDeleteUser, this.props);
   }
 }
 
-export const PopupDeleteUser = withStore(PopupDeleteUserBase);
+export const DeleteUser = withStore(DeleteUserBase);

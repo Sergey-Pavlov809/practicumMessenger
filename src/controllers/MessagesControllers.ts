@@ -3,17 +3,17 @@ import { Message } from "../types";
 
 const sockets: Map<number, WebSocket> = new Map();
 
-export const newConnect = async (dialogId: number, token: string) => {
-  if (sockets.has(dialogId)) {
+export const newConnect = async (chatId: number, token: string) => {
+  if (sockets.has(chatId)) {
     return;
   }
 
   const id = StoreApp.getState().user!.id!;
 
-  const url = "wss://ya-praktikum.tech/ws/dialogs";
-  const socket = new WebSocket(`${url}/${id}/${dialogId}/${token}`);
+  const url = "wss://ya-praktikum.tech/ws/chats";
+  const socket = new WebSocket(`${url}/${id}/${chatId}/${token}`);
 
-  sockets.set(dialogId, socket);
+  sockets.set(chatId, socket);
 
   socket.addEventListener("open", () => {
     socket.send(JSON.stringify({ content: "0", type: "get old" }));
@@ -31,7 +31,7 @@ export const newConnect = async (dialogId: number, token: string) => {
     }
 
 
-    sockets.delete(dialogId);
+    sockets.delete(chatId);
     clearInterval(ping);
   });
 
@@ -57,7 +57,7 @@ export const newConnect = async (dialogId: number, token: string) => {
 
       const messageList = StoreApp.getState().messageList;
 
-      messageList[dialogId] = [...messageList[dialogId] || [], ...messagesToAdd];
+      messageList[chatId] = [...messageList[chatId] || [], ...messagesToAdd];
       StoreApp.dispatch({ messageList });
     } catch (e: any) {
       console.error("message parse", e);

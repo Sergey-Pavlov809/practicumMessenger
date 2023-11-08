@@ -9,14 +9,14 @@ import { blur, focus } from "../../utils/validate";
 
 import { DialogUsers } from "../../types";
 import { Button } from "../Button";
-import { PopupDeleteUser } from "../popupDeleteUser";
 import { sendMessage } from "../../controllers/MessagesControllers";
 import "./DialogsContent.less";
 import { tmpl } from "./DialogsContent.tmpl";
 import { StoreApp } from "../../core/Store";
-import { Header } from "../header";
+import { Header } from "../Header";
 import { Message as IMessage } from "../../types";
 import { getDialogs } from "../../controllers/DialogControllers";
+import { DeleteUser } from "../DeleteUser";
 
 const dialogContent = Handlebars.compile(tmpl);
 
@@ -40,7 +40,7 @@ export class DialogContentComponent extends Block {
     this.children.inputMessage = new Input({
       name: "message",
       type: "text",
-      placeholder: "Педиалогай...",
+      placeholder: "Сообщение...",
       inputClass: "input_message",
       inputContainerClass: "input__container_message",
       events: {
@@ -49,7 +49,7 @@ export class DialogContentComponent extends Block {
       },
     });
 
-    this.children.DeleteUserModal = new PopupDeleteUser({ dialogUsers: [] });
+    this.children.DeleteUserModal = new DeleteUser({ dialogUsers: [] });
   }
 
 
@@ -59,9 +59,9 @@ export class DialogContentComponent extends Block {
     let { value } = input;
 
     if (value.length > 0) {
-      const dialogId = StoreApp.getState().selectedDialog!.id!;
+      const chatId = StoreApp.getState().selectedDialog!.id!;
 
-      sendMessage(dialogId, value);
+      sendMessage(chatId, value);
 
       getDialogs().then();
     }

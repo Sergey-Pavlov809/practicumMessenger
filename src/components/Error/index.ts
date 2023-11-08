@@ -2,9 +2,8 @@ import Handlebars from "handlebars";
 
 import Block from "../../core/Block";
 import { LinkButton } from "../linkButton";
-
 import "./Error.less";
-import { tmpl } from "./error.tmpl";
+import { tmpl } from "./Error.tmpl";
 
 interface ErrorProps {
   title?: string,

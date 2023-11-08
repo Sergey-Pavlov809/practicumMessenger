@@ -1,5 +1,5 @@
-export const HintTmpl = `
-   <div class="hint">
+export const tmpl = `
+   <div class="options">
         {{{ addUser }}}
         {{{ deleteUser }}}
         {{{ deleteDialog }}}      

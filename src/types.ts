@@ -14,7 +14,7 @@ export interface ISignUp {
 
 export interface Users {
   users: number[];
-  dialogId: number;
+  chatId: number;
 }
 
 export interface DialogList {

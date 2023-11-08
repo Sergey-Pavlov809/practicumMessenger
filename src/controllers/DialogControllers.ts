@@ -29,7 +29,7 @@ export const createDialogs = async (data: { title: string }) => {
   }
 };
 
-export const deleteDialog = async (data: { dialogId: number }) => {
+export const deleteDialog = async (data: { chatId: number }) => {
   await DialogsAPI.deleteDialogs(data);
   getDialogs().then();
 
@@ -44,10 +44,10 @@ export const getDialogUsers = async (id: number) => {
 
 export const addUser = async (data: Users) => {
   await DialogsAPI.putAddUsers(data);
-  getDialogUsers(data.dialogId).then();
+  getDialogUsers(data.chatId).then();
 };
 
 export const deleteUser = async (data: Users) => {
   await DialogsAPI.deleteUsers(data);
-  getDialogUsers(data.dialogId).then();
+  getDialogUsers(data.chatId).then();
 };

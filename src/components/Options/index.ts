@@ -1,14 +1,14 @@
 import Block from "../../core/Block";
 import { StoreApp } from "../../core/Store";
 import { Button } from "../Button";
-import "./styles.less";
+import "./Options.less";
 import Handlebars from "handlebars";
-import { tmpl } from "./hint.tmpl";
+import { tmpl } from "./Options.tmpl";
 import { deleteDialog } from "../../controllers/DialogControllers";
 
-const hint = Handlebars.compile(tmpl);
+const options = Handlebars.compile(tmpl);
 
-export class Hint extends Block {
+export class Options extends Block {
   protected init() {
     this.children.addUser = new Button({
       type: "button",
@@ -17,7 +17,7 @@ export class Hint extends Block {
       events: {
         click: () => {
           StoreApp.dispatch({
-            popups: { addUsers: true },
+            modals: { addUsers: true },
           });
 
           this.props.open = false;
@@ -32,7 +32,7 @@ export class Hint extends Block {
       events: {
         click: () => {
           StoreApp.dispatch({
-            popups: { deleteUsers: true },
+            modals: { deleteUsers: true },
           });
         },
       },
@@ -44,15 +44,15 @@ export class Hint extends Block {
       className: "button",
       events: {
         click: () => {
-          const dialogId = StoreApp.getState().selectedDialog!.id!;
+          const chatId = StoreApp.getState().selectedDialog!.id!;
 
-          deleteDialog({ dialogId }).then();
+          deleteDialog({ chatId }).then();
         },
       },
     });
   }
 
   render() {
-    return this.compile(hint, this.props);
+    return this.compile(options, this.props);
   }
 }

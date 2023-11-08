@@ -1,4 +1,4 @@
-export const SignInContentTmpl = `<div>
+export const tmpl = `<div>
 {{{ inputFirstName }}}
 {{{ inputSecondName }}}
 {{{ inputLogin }}}

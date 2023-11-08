@@ -27,7 +27,6 @@ export const handleSubmit = (event: Event): any  => {
   const inputValue: any = {};
   const inputList = document.querySelectorAll(".input");
 
-  //прописываем any, а не HTMLInputElement, чтобы можно было добавить input.value
   inputList.forEach((input: any) => {
     inputValue[input.name] = input.value;
 

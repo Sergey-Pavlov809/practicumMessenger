@@ -3,7 +3,7 @@ import { Users } from "../types";
 
 class Dialogs extends Api {
   constructor() {
-    super("/dialogs");
+    super("/chats");
   }
 
   getDialogs(): Promise<unknown> {
@@ -19,7 +19,7 @@ class Dialogs extends Api {
     });
   }
 
-  deleteDialogs(data: { dialogId: number }): Promise<unknown> {
+  deleteDialogs(data: { chatId: number }): Promise<unknown> {
     return this.http.delete("/", {
       data,
       headers: { "Content-Type": "application/json" },

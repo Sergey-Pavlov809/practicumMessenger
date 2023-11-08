@@ -9,7 +9,6 @@ import { Button } from "../../components/Button";
 import { withStore } from "../../core/withStore";
 import { StoreApp } from "../../core/Store";
 
-import { PopupAddUser } from "../../components/popupAddUser";
 import { DialogList } from "../../types";
 import pen from "./../../../static/icons/pen.svg"
 import { DialogContent } from "../../components/DialogsContent";
@@ -17,6 +16,7 @@ import { PopupAddNewDialog } from "../../components/AddNewDialog";
 import { UserInfoDialog } from "../../components/userInfoDialog";
 import { getDialogUsers } from "../../controllers/DialogControllers";
 import { tmpl } from "./Dialog.tmpl";
+import { AddUser } from "../../components/AddUser";
 
 const dialog = Handlebars.compile(tmpl);
 
@@ -45,12 +45,12 @@ export class DialogComponent extends Block {
       text: "Создать диалог",
       events: {
         click: () => {
-          StoreApp.dispatch({ popups: { newDialog: true }, openedNewDialog: true });
+          StoreApp.dispatch({ modals: { newDialog: true }, openedNewDialog: true });
         },
       },
     });
 
-    this.children.AddUserModal = new PopupAddUser({});
+    this.children.AddUserModal = new AddUser({});
     this.children.modalNewDialog =  new PopupAddNewDialog({})  ;
   }
 

@@ -1,11 +1,10 @@
 import Handlebars from "handlebars";
-
-import "./styles.less";
+import "./SignIn.less";
 import Block from "../../core/Block";
-import { SignInTmpl } from "./signin.tmpl";
 import { SignInContent } from "../../components/signInContent";
+import { tmpl } from "./signin.tmpl";
 
-const signIn = Handlebars.compile(SignInTmpl);
+const signIn = Handlebars.compile(tmpl);
 
 export class SignIn extends Block {
   constructor(props: {}) {

@@ -8,11 +8,11 @@ import { signUp } from "../../controllers/AuthController";
 
 import "./styles.less";
 
-import { SignInContentTmpl } from "./signInContent.tmpl";
+import { tmpl } from "./signInContent.tmpl";
 import { blur, focus, handleSubmit } from "../../utils/validate";
 import { ISignUp } from "../../types";
 
-const signIn = Handlebars.compile(SignInContentTmpl);
+const signIn = Handlebars.compile(tmpl);
 
 export class SignInContent extends Block {
   constructor(props: {}) {

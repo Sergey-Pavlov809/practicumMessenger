@@ -49,9 +49,9 @@ export class Input extends Block {
     let { value } = inputMessage;
 
     if (value.length > 0) {
-      const dialogId = StoreApp.getState().selectedDialog!.id!;
+      const chatId = StoreApp.getState().selectedDialog!.id!;
 
-      sendMessage(dialogId, value);
+      sendMessage(chatId, value);
 
       getDialogs().finally(() => {
         value = "";

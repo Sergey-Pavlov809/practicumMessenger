@@ -1,7 +1,7 @@
-export const ProfileTmpl = `
+export const tmpl = `
 <div class="form">
-        <form>
-            {{{ profileContent }}}
-        </form>
+    <form>
+        {{{ profileContent }}}
+    </form>
 </div>
 `;
