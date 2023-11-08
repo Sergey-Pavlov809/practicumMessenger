@@ -41,4 +41,4 @@ export function queryString(data: PlainObject) {
   }
 
   return getParams(data).map(arr => arr.join("=")).join("&");
-} 
+}
