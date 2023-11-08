@@ -1,7 +1,7 @@
 import Handlebars from "handlebars";
 
 import Block from "../../core/Block";
-import { LinkButton } from "../linkButton";
+import { LinkButton } from "../LinkButton";
 import "./Error.less";
 import { tmpl } from "./Error.tmpl";
 

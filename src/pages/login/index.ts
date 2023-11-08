@@ -2,8 +2,8 @@ import Handlebars from "handlebars";
 
 import "./Login.less";
 import Block from "../../core/Block";
-import { LoginContent } from "../../components/loginContent";
-import { tmpl } from "./login.tmpl";
+import { LoginContent } from "../../components/LoginContent";
+import { tmpl } from "./Login.tmpl";
 
 const login = Handlebars.compile(tmpl);
 

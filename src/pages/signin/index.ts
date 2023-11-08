@@ -1,8 +1,8 @@
 import Handlebars from "handlebars";
 import "./SignIn.less";
 import Block from "../../core/Block";
-import { SignInContent } from "../../components/signInContent";
-import { tmpl } from "./signin.tmpl";
+import { SignInContent } from "../../components/SignInContent";
+import { tmpl } from "./SignIn.tmpl";
 
 const signIn = Handlebars.compile(tmpl);
 

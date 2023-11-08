@@ -5,7 +5,7 @@ import { changeUserAvatar } from "../../controllers/UsersControllers";
 import { withStore } from "../../core/withStore";
 
 import "./Avatar.less";
-import { Input } from "../input";
+import { Input } from "../Input";
 import pen from "./../../../static/icons/pen.svg";
 import { tmpl } from "./avatar.tmpl";
 

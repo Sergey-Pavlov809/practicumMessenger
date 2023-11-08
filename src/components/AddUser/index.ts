@@ -5,7 +5,7 @@ import { withStore } from "../../core/withStore";
 import { searchUser } from "../../controllers/UsersControllers";
 import { Button } from "../Button";
 import { SearchUser } from "../searchUser";
-import { Input } from "../input";
+import { Input } from "../Input";
 import "./styles.less";
 import { tmpl } from "./AddUser.tmpl";
 

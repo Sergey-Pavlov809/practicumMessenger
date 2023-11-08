@@ -1,7 +1,7 @@
 import Handlebars from "handlebars";
 import "./Dialog.less";
 
-import { Input } from "../../components/input";
+import { Input } from "../../components/Input";
 
 import Block from "../../core/Block";
 import { Button } from "../../components/Button";

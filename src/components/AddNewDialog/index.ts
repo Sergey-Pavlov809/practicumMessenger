@@ -3,7 +3,7 @@ import Block from "../../core/Block";
 import { StoreApp } from "../../core/Store";
 import { withStore } from "../../core/withStore";
 import { Button } from "../Button";
-import { Input } from "../input";
+import { Input } from "../Input";
 
 import "./AddNewDialog.less";
 import { tmpl } from "./AddNewDialog.tmpl";

@@ -1,4 +1,4 @@
-import { ValidateRegex } from "./ValidateRegex";
+import { ValidateRegexp } from "./ValidateRegexp";
 
 class Validator {
   private static INPUTS: Record<
@@ -6,7 +6,7 @@ class Validator {
   {
     pattern: RegExp;
     error: string;
-  }> = ValidateRegex;
+  }> = ValidateRegexp;
 
   static validate(inputName: string, inputValue: string) {
     const result: {

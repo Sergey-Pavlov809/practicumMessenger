@@ -1,6 +1,6 @@
 import { ERRORS } from "../constants";
 
-export const ValidateRegex = {
+export const ValidateRegexp = {
   login: {
     pattern: /^(?=.*[a-zA-Z])([a-zA-Z0-9-_]){3,20}$/,
     error: ERRORS.LOGIN,

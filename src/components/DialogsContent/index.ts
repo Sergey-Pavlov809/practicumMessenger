@@ -3,8 +3,8 @@ import Block from "../../core/Block";
 
 import more from "./img/more.png";
 import { withStore } from "../../core/withStore";
-import { Message } from "../message";
-import { Input } from "../input";
+import { Message } from "../Message";
+import { Input } from "../Input";
 import { blur, focus } from "../../utils/validate";
 
 import { DialogUsers } from "../../types";

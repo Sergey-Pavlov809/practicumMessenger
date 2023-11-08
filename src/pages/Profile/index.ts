@@ -2,8 +2,8 @@ import Handlebars from "handlebars";
 
 import "./Profile.less";
 import Block from "../../core/Block";
-import { ProfileContent } from "../../components/profileContent";
-import { tmpl } from "./profile.tmpl";
+import { ProfileContent } from "../../components/ProfileContent";
+import { tmpl } from "./Profile.tmpl";
 
 const profile = Handlebars.compile(tmpl);
 
