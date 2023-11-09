@@ -6,7 +6,7 @@ import { LinkButton } from "../LinkButton";
 import { focus, blur, handleSubmit } from "../../utils/validate";
 import { signIn } from "../../controllers/AuthController";
 import "./LoginContent.less";
-import { ISignUp } from "../../types";
+import { ISignIn, ISignUp } from "../../types";
 import { tmpl } from "./LoginContent.tmpl";
 
 const login = Handlebars.compile(tmpl);
@@ -60,7 +60,7 @@ export class LoginContent extends Block {
   onSubmit(evt: Event) {
     evt.preventDefault();
 
-    const data = handleSubmit(evt) as ISignUp;
+    const data = handleSubmit(evt) as ISignIn;
 
     if (data) {
       signIn(data).then();
