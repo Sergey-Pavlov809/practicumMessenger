@@ -45,12 +45,12 @@
 
 ## Странцы
 
-1. Авторизация: https://deploy-preview-2--resplendent-chaja-1874eb.netlify.app/
-2. Регистрация: https://deploy-preview-2--resplendent-chaja-1874eb.netlify.app/registration
-3. Диалоги: https://deploy-preview-2--resplendent-chaja-1874eb.netlify.app/dialogs
-4. Профиль: https://deploy-preview-2--resplendent-chaja-1874eb.netlify.app/profile
-5. 4\*\* Ошибка: https://deploy-preview-2--resplendent-chaja-1874eb.netlify.app/asd
-6. 5\*\* Ошибка:https://deploy-preview-2--resplendent-chaja-1874eb.netlify.app/server-error
+1. Авторизация: https://654cd2cfb4e2100008a43f50--resplendent-chaja-1874eb.netlify.app/
+2. Регистрация: https://654cd2cfb4e2100008a43f50--resplendent-chaja-1874eb.netlify.app/registration
+3. Диалоги: https://654cd2cfb4e2100008a43f50--resplendent-chaja-1874eb.netlify.app//dialogs
+4. Профиль: https://654cd2cfb4e2100008a43f50--resplendent-chaja-1874eb.netlify.app/profile
+5. 4\*\* Ошибка: https://654cd2cfb4e2100008a43f50--resplendent-chaja-1874eb.netlify.app/asd
+6. 5\*\* Ошибка:https://654cd2cfb4e2100008a43f50--resplendent-chaja-1874eb.netlify.app//server-error
 
 ## Установка
 
