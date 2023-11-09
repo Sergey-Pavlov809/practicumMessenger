@@ -5,7 +5,7 @@ import { Error400 } from "./src/pages/Error400/index";
 import { Error500 } from "./src/pages/Error500/index";
 import { Dialog } from "./src/pages/Dialog/index";
 import { Profile } from "./src/pages/Profile/index";
-import { Login } from "./src/pages/Login/index";
+import { Login } from "./src/pages/login/index";
 import { SignUp } from "./src/pages/SignUp";
 
 document.addEventListener("DOMContentLoaded", async () => {
