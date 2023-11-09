@@ -6,7 +6,7 @@ import { LinkButton } from "../LinkButton";
 import { focus, blur, handleSubmit } from "../../utils/validate";
 import { signIn } from "../../controllers/AuthController";
 import "./LoginContent.less";
-import { ISignIn, ISignUp } from "../../types";
+import { ISignIn } from "../../types";
 import { tmpl } from "./LoginContent.tmpl";
 
 const login = Handlebars.compile(tmpl);
