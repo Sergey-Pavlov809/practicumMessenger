@@ -6,11 +6,11 @@ import { Error500 } from "./src/pages/Error500/index";
 import { Dialog } from "./src/pages/Dialog/index";
 import { Profile } from "./src/pages/Profile/index";
 import { Login } from "./src/pages/Login/index";
-import { SignIn } from "./src/pages/SignIn/index";
+import { SignUp } from "./src/pages/SignUp";
 
 document.addEventListener("DOMContentLoaded", async () => {
   Router.use("/", Login);
-  Router.use("/sign-up", SignIn);
+  Router.use("/sign-up", SignUp);
   Router.use("/settings", Profile);
   Router.use("/messenger", Dialog);
   Router.use("/error404", Error400);

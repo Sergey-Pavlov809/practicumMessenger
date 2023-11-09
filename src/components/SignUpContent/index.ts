@@ -8,13 +8,13 @@ import { signUp } from "../../controllers/AuthController";
 
 import "./styles.less";
 
-import { tmpl } from "./SignInContent.tmpl";
+import { tmpl } from "./SignUpContent.tmpl";
 import { blur, focus, handleSubmit } from "../../utils/validate";
 import { ISignUp } from "../../types";
 
 const signIn = Handlebars.compile(tmpl);
 
-export class SignInContent extends Block {
+export class SignUpContent extends Block {
   constructor(props: {}) {
 
     const inputLogin = new Input({

@@ -1,5 +1,5 @@
 import { AuthAPI } from "../api/AuthAPI";
-import { User, ISignIn, ISignUp } from "../types";
+import { User, ISignUp, ISignUp } from "../types";
 
 import Router from "../routing/Router";
 import { StoreApp } from "../core/Store";
@@ -11,9 +11,9 @@ export const getUserInfo = async () => {
   StoreApp.dispatch({ user: userData });
 };
 
-export const signIn = async (data: ISignIn) => {
+export const signIn = async (data: ISignUp) => {
   try {
-    await AuthAPI.postSignIn(data);
+    await AuthAPI.postSignUp(data);
     getUserInfo().then();
 
     Router.go("/messenger");
