@@ -4,9 +4,9 @@ import { getUserInfo } from "./src/controllers/AuthController";
 import { Error400 } from "./src/pages/Error400/index";
 import { Error500 } from "./src/pages/Error500/index";
 import { Dialog } from "./src/pages/Dialog/index";
-import { Profile } from "./src/pages/Profile";
-import { Login } from "./src/pages/Login";
-import { SignIn } from "./src/pages/SignIn";
+import { Profile } from "./src/pages/Profile/index";
+import { Login } from "./src/pages/Login/index";
+import { SignIn } from "./src/pages/SignIn/index";
 
 document.addEventListener("DOMContentLoaded", async () => {
   Router.use("/", Login);

@@ -1,7 +1,7 @@
 import Handlebars from "handlebars";
 import Block from "../../core/Block";
 
-import more from "./img/more.png";
+import more from "./../../../static/icons/more.svg";
 import { withStore } from "../../core/withStore";
 import { Message } from "../Message";
 import { Input } from "../Input";
