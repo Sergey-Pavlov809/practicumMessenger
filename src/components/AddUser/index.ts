@@ -4,7 +4,7 @@ import { StoreApp } from "../../core/Store";
 import { withStore } from "../../core/withStore";
 import { searchUser } from "../../controllers/UsersControllers";
 import { Button } from "../Button";
-import { SearchUser } from "../searchUser";
+import { SearchUser } from "../SearchUser";
 import { Input } from "../Input";
 import "./styles.less";
 import { tmpl } from "./AddUser.tmpl";

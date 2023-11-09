@@ -95,7 +95,7 @@ export class SignInContent extends Block {
 
   init() {
     this.children.button = new Button({
-      className: "button_purple",
+      className: "button_lightblue",
       text: "Зарегистрироваться",
       events: {
         click: (evt) => this.onSubmit(evt),

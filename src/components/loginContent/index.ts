@@ -49,7 +49,7 @@ export class LoginContent extends Block {
 
   init() {
     this.children.button = new Button({
-      className: "button_purple",
+      className: "button_lightblue",
       text: "Войти",
       events: {
         click: (e) => this.onSubmit(e),

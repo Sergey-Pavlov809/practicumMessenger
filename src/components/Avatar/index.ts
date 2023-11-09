@@ -7,7 +7,7 @@ import { withStore } from "../../core/withStore";
 import "./Avatar.less";
 import { Input } from "../Input";
 import pen from "./../../../static/icons/pen.svg";
-import { tmpl } from "./avatar.tmpl";
+import { tmpl } from "./Avatar.tmpl";
 
 const avatar = Handlebars.compile(tmpl);
 

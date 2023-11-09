@@ -2,7 +2,7 @@ import Handlebars from "handlebars";
 import Block from "../../core/Block";
 import { StoreApp } from "../../core/Store";
 import { Button } from "../Button";
-import { tmpl } from "./searchUser.tmpl";
+import { tmpl } from "./SearchUser.tmpl";
 import { addUser, deleteUser } from "../../controllers/DialogControllers";
 
 const searchUser = Handlebars.compile(tmpl);

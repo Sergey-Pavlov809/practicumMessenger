@@ -13,7 +13,7 @@ import { DialogList } from "../../types";
 import pen from "./../../../static/icons/pen.svg"
 import { DialogContent } from "../../components/DialogsContent";
 import { PopupAddNewDialog } from "../../components/AddNewDialog";
-import { UserInfoDialog } from "../../components/userInfoDialog";
+import { UserInfoDialog } from "../../components/UserInfoDialog";
 import { getDialogUsers } from "../../controllers/DialogControllers";
 import { tmpl } from "./Dialog.tmpl";
 import { AddUser } from "../../components/AddUser";

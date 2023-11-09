@@ -3,7 +3,7 @@ import Block from "../../core/Block";
 import { StoreApp } from "../../core/Store";
 import { withStore } from "../../core/withStore";
 import { Button } from "../Button";
-import { SearchUser } from "../searchUser";
+import { SearchUser } from "../SearchUser";
 import "./styles.less";
 import { tmpl } from "./DeleteUser.tmpl";
 

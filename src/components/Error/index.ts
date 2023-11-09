@@ -18,7 +18,7 @@ export class ErrorBlock extends Block {
     const linkButton = new LinkButton({
       linkText:"Назад к диалогам",
       href: "/",
-      linkClass: "link_purple",
+      linkClass: "link_lightblue",
     });
 
     super({ linkButton, ...props });

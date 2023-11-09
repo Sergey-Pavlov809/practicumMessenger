@@ -148,7 +148,7 @@ export class ProfileContentComponent extends Block {
     this.children.avatar = new Avatar({});
     this.children.button = new Button({
       text:"Применить",
-      className: "button_purple",
+      className: "button_lightblue",
       events: {
         click: (e) => this.onSubmit(e),
       },
