@@ -7,7 +7,7 @@ import { focus, blur, handleSubmit } from "../../utils/validate";
 import { signIn } from "../../controllers/AuthController";
 import "./LoginContent.less";
 import { ISignIn } from "../../types";
-import { tmpl } from "./LoginContent.tmpl";
+import { tmpl } from "./LoginContent.tmpl.ts";
 
 const login = Handlebars.compile(tmpl);
 

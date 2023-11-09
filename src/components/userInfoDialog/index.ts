@@ -1,6 +1,6 @@
 import Handlebars from "handlebars";
 
-import { tmpl } from "./UserInfoDialog.tmpl";
+import { tmpl } from "./UserInfoDialog.tmpl.ts";
 import Block from "../../core/Block";
 
 import "./styles.less";
