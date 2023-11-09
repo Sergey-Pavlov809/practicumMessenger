@@ -3,7 +3,7 @@ import Handlebars from "handlebars";
 import Block from "../../core/Block";
 import { withRouter } from "../../routing/withRouter";
 import "./LinkButton.less";
-import { tmpl } from "./linkButton.tmpl";
+import { tmpl } from "./LinkButton.tmpl";
 
 interface LinkButtonProps {
   linkClass?: string,
