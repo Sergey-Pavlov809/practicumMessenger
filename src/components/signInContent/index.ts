@@ -22,8 +22,8 @@ export class SignInContent extends Block {
       type: "text",
       placeholder: "Логин",
       events: {
-        focusin: (e) => focus(e),
-        focusout:(e) => blur(e),
+        focus: (e) => focus(e),
+        blur:(e) => blur(e),
       },
     });
 
@@ -32,8 +32,8 @@ export class SignInContent extends Block {
       type: "password",
       placeholder: "Пароль",
       events: {
-        focusin: (e) => focus(e),
-        focusout:(e) => blur(e),
+        focus: (e) => focus(e),
+        blur:(e) => blur(e),
       },
     });
 
@@ -42,8 +42,8 @@ export class SignInContent extends Block {
       type: "phone",
       placeholder: "Телефон",
       events: {
-        focusin: (e) => focus(e),
-        focusout:(e) => blur(e),
+        focus: (e) => focus(e),
+        blur:(e) => blur(e),
       },
     });
 
@@ -52,8 +52,8 @@ export class SignInContent extends Block {
       type: "email",
       placeholder: "Email",
       events: {
-        focusin: (e) => focus(e),
-        focusout:(e) => blur(e),
+        focus: (e) => focus(e),
+        blur:(e) => blur(e),
       },
     });
 
@@ -62,8 +62,8 @@ export class SignInContent extends Block {
       type: "text",
       placeholder: "Имя",
       events: {
-        focusin: (e) => focus(e),
-        focusout:(e) => blur(e),
+        focus: (e) => focus(e),
+        blur:(e) => blur(e),
       },
     });
 
@@ -72,8 +72,8 @@ export class SignInContent extends Block {
       type: "text",
       placeholder: "Фамилия",
       events: {
-        focusin: (e) => focus(e),
-        focusout:(e) => blur(e),
+        focus: (e) => focus(e),
+        blur:(e) => blur(e),
       },
     });
 

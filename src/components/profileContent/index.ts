@@ -14,6 +14,7 @@ import { logout } from "../../controllers/AuthController";
 import { changeUserIPassword, changeIUserProfile } from "../../controllers/UsersControllers";
 
 import { IUserProfile } from "../../types";
+import Router from "../../routing/Router";
 
 const profileContent = Handlebars.compile(tmpl);
 
@@ -25,11 +26,11 @@ export class ProfileContentComponent extends Block {
       name: "login",
       type: "text",
       placeholder: "Логин",
-      inputClass: "input_profile",
-      inputContainerClass: "input__container_profile",
+      inputClass: "input",
+      inputContainerClass: "input__container",
       events: {
-        focusin: (e) => focus(e),
-        focusout:(e) => blur(e),
+        focus: (e) => focus(e),
+        blur:(e) => blur(e),
       },
     });
 
@@ -38,11 +39,11 @@ export class ProfileContentComponent extends Block {
       name: "phone",
       type: "phone",
       placeholder: "Телефон",
-      inputClass: "input_profile",
-      inputContainerClass: "input__container_profile",
+      inputClass: "input",
+      inputContainerClass: "input__container",
       events: {
-        focusin: (e) => focus(e),
-        focusout:(e) => blur(e),
+        focus: (e) => focus(e),
+        blur:(e) => blur(e),
       },
     });
 
@@ -51,11 +52,11 @@ export class ProfileContentComponent extends Block {
       name: "email",
       type: "email",
       placeholder: "Email",
-      inputClass: "input_profile",
-      inputContainerClass: "input__container_profile",
+      inputClass: "input",
+      inputContainerClass: "input__container",
       events: {
-        focusin: (e) => focus(e),
-        focusout:(e) => blur(e),
+        focus: (e) => focus(e),
+        blur:(e) => blur(e),
       },
     });
 
@@ -64,11 +65,11 @@ export class ProfileContentComponent extends Block {
       name: "first_name",
       type: "text",
       placeholder: "Имя",
-      inputClass: "input_profile",
-      inputContainerClass: "input__container_profile",
+      inputClass: "input",
+      inputContainerClass: "input__container",
       events: {
-        focusin: (e) => focus(e),
-        focusout:(e) => blur(e),
+        focus: (e) => focus(e),
+        blur:(e) => blur(e),
       },
     });
 
@@ -77,11 +78,11 @@ export class ProfileContentComponent extends Block {
       name: "second_name",
       type: "text",
       placeholder: "Фамилия",
-      inputClass: "input_profile",
-      inputContainerClass: "input__container_profile",
+      inputClass: "input",
+      inputContainerClass: "input__container",
       events: {
-        focusin: (e) => focus(e),
-        focusout:(e) => blur(e),
+        focus: (e) => focus(e),
+        blur:(e) => blur(e),
       },
     });
 
@@ -90,8 +91,8 @@ export class ProfileContentComponent extends Block {
       name: "display_name",
       type: "text",
       placeholder: "Имя в аккаунте",
-      inputClass: "input_profile",
-      inputContainerClass: "input__container_profile",
+      inputClass: "input",
+      inputContainerClass: "input__container",
     });
 
     const inputNewIPassword = new Input({
@@ -99,11 +100,11 @@ export class ProfileContentComponent extends Block {
       name: "newIPassword",
       type: "password",
       placeholder: "Новый пароль",
-      inputClass: "input_profile",
-      inputContainerClass: "input__container_profile",
+      inputClass: "input",
+      inputContainerClass: "input__container",
       events: {
-        focusin: (e) => focus(e),
-        focusout:(e) => blur(e),
+        focus: (e) => focus(e),
+        blur:(e) => blur(e),
       },
     });
 
@@ -112,11 +113,11 @@ export class ProfileContentComponent extends Block {
       name: "oldIPassword",
       type: "password",
       placeholder: "Старый пароль",
-      inputClass: "input_profile",
-      inputContainerClass: "input__container_profile",
+      inputClass: "input",
+      inputContainerClass: "input__container",
       events: {
-        focusin: (e) => focus(e),
-        focusout:(e) => blur(e),
+        focus: (e) => focus(e),
+        blur:(e) => blur(e),
       },
     });
 
@@ -146,6 +147,15 @@ export class ProfileContentComponent extends Block {
 
   init() {
     this.children.avatar = new Avatar({});
+    this.children.back = new Button({
+      text:"Назад",
+      className: "button",
+      events: {
+        click: () => {
+          Router.go("/messenger")
+        }
+      },
+    });
     this.children.button = new Button({
       text:"Применить",
       className: "button_lightblue",
@@ -154,6 +164,8 @@ export class ProfileContentComponent extends Block {
       },
     });
   }
+
+  
 
   onSubmit(evt: Event) {
     evt.preventDefault();

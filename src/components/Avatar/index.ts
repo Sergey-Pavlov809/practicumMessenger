@@ -9,6 +9,8 @@ import { Input } from "../Input";
 import pen from "./../../../static/icons/pen.svg";
 import { tmpl } from "./Avatar.tmpl";
 
+// const pen = require("./../../../static/icons/pen.svg") as string;
+
 const avatar = Handlebars.compile(tmpl);
 
 class AvatarComponent extends Block {

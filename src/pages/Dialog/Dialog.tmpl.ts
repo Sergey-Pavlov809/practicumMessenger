@@ -3,7 +3,7 @@ export const tmpl = `<div>
 <div class="sidebar__container">
 <div class="sidebar__main">
 <a class="sidebar__link" href="/settings"> 
-<img src={{ srcImg }} alt="изменить" class="img" /> 
+<img src={{ pen }} alt="изменить" class="img" /> 
 </a>
 {{{ inputSearch }}}
 </div>

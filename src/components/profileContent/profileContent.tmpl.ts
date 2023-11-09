@@ -11,6 +11,7 @@ export const tmpl = `<div class="profile">
 {{{ inputNewIPassword }}}
 <div class="button__container">
 {{{ button }}}
+{{{ back }}}
 {{{ linkButton }}}
 </div>
 </div>`;

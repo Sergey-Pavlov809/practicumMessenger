@@ -18,5 +18,5 @@
     "sourceMap": true,
     "strictNullChecks": true 
   },
-  "include": ["src", "src/components", "custom.d.ts"]
+  "include": ["src", "exports.d.ts","vite.config.ts", "index.ts", "server.js"]
 }

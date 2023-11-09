@@ -6,12 +6,12 @@ export const tmpl = `
   alt="avatar" 
 />
 {{else}}
-  <img alt="поменять аватар" class="avatar-base logo" src={{ pen }} alt="Поменять аватар" />
+  <img alt="поменять аватар" class="avatar-base logo" src={{ pen }}/>
 {{/if}}
 
 <label class="avatar-label">
   {{{ inputAvatar }}}
-  <span class="avatar-change">Сменить лого</span>
+  <span class="avatar-change">Сменить аватар</span>
 </label>
 </div>
 </div>`;

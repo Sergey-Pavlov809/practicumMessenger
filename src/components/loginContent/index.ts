@@ -19,8 +19,8 @@ export class LoginContent extends Block {
       type:"text",
       placeholder:"Логин",
       events: {
-        focusin: (e) => focus(e),
-        focusout:(e) => blur(e),
+        focus: (e) => focus(e),
+        blur:(e) => blur(e),
       },
       error: "Некорректный логин",  
     });
@@ -29,8 +29,8 @@ export class LoginContent extends Block {
       name: "password",
       type: "password",
       events: {
-        focusin: (e) => focus(e),
-        focusout:(e) => blur(e),
+        focus: (e) => focus(e),
+        blur:(e) => blur(e),
       },
       placeholder: "Пароль",
     });

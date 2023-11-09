@@ -44,8 +44,8 @@ export class DialogContentComponent extends Block {
       inputClass: "input_message",
       inputContainerClass: "input__container_message",
       events: {
-        focusin: (e) => focus(e),
-        focusout:(e) => blur(e),
+        focus: (e) => focus(e),
+        blur:(e) => blur(e),
       },
     });
 

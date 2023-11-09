@@ -17,8 +17,8 @@ interface InputProps {
   inputClass?: string,
   inputContainerClass?: string,
   events?: { 
-    focusin?: (e: Event) => void;
-    focusout?: (e: Event) => void;
+    focus?: (e: Event) => void;
+    blur?: (e: Event) => void;
     change?: (e: Event) => void
   };
 }
