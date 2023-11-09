@@ -10,7 +10,7 @@ import { SignIn } from "./src/pages/SignIn";
 
 document.addEventListener("DOMContentLoaded", async () => {
   Router.use("/", Login);
-  Router.use("/signin", SignIn);
+  Router.use("/sign-up", SignIn);
   Router.use("/settings", Profile);
   Router.use("/messenger", Dialog);
   Router.use("/error404", Error400);

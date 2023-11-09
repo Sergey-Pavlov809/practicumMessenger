@@ -37,7 +37,7 @@ export class LoginContent extends Block {
 
     const linkButton = new LinkButton({
       linkText:"Нет аккаунта?",
-      href: "/signin",
+      href: "/sign-up",
     });
 
     super( {
