@@ -1,20 +1,24 @@
-import Block from "../../utils/Block";
+import Handlebars from "handlebars";
+
 import { tmpl } from "./Button.tmpl";
+import Block from "../../core/Block";
 import "./Button.less";
 
-interface TProps {
-  label: string;
-  events?: Record<string, (args: any) => void>;
-  type?: string;
-  className?: string;
+interface ButtonProps {
+  className?: string,
+  text?: string,
+  type?: string,
+  events?: { click: (e: Event) => void };
 }
 
-export class Button extends Block<TProps> {
-  constructor(props: TProps) {
-    super(props);
+const button = Handlebars.compile(tmpl);
+
+export class Button extends Block {
+  constructor(props: ButtonProps) {
+    super({ ...props });
   }
 
   render() {
-    return this.compile(tmpl, this.props);
+    return this.compile(button, this.props);
   }
 }

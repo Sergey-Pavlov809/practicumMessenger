@@ -1,0 +1,73 @@
+
+
+.input__container {
+    margin-bottom: 24px;
+    width: 100%;
+
+    &_message {
+        margin-bottom: 6px;
+    }
+
+    &_profile {
+        margin-bottom: 6px;
+    }
+}
+
+.input {
+    border: 0;
+    border-bottom: 1px solid #ADD8E6;
+    background-color: transparent;
+    color: #000;
+    padding-bottom: 8px;
+    margin-bottom: 4px;
+    width: 512px;
+    
+
+    &:focus {
+        outline: 0;
+    }
+
+    &::placeholder {
+        color: #fff;
+    }
+
+    &_search {
+        border-radius: 6px;
+        border: 0;
+        padding: 14px;
+        width: 249px;
+        background-color: #ADD8E6;
+        color: #fff;
+        margin-bottom: 0;
+    }
+
+    &_search::placeholder {
+        color: #fff;
+    }
+
+    &_message {
+        border-radius: 6px;
+        border: 0;
+        padding: 14px;
+        width: 100%;
+        background-color: #ADD8E6;
+        color: #fff;
+        margin-bottom: 0;
+    }
+
+    &_message::placeholder {
+        color: #fff;
+    }
+
+    &__error {
+        color: #F00;
+        margin-bottom: 2px;
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    &__error_visible {
+        visibility: visible;
+        opacity: 1;
+    }
+}

@@ -1,5 +1,33 @@
 # Messenger
 
+## Реализованы собственный роутинг стейт мэнаджер
+
+## Вход
+
+Для доступа к приложению можно воспользоваться уже готвыми кредами которые 
+находятся в файле CREDENTIALS.txt в корне проекта
+
+## Обновления
+
+Полностью переработана страница диалогов
+
+Переработанна верстка компонентов 
+
+Добавленны возможности:
+  - создавать диалог 
+  - находить существующий диалог
+  - писать сообщения
+  - добавлять пользователей 
+  - кикать позователей
+  - редактировать профиль
+  - работа со store
+
+Так же важно отметить что все действия сопровождаются работой с бэком и сохраняются
+
+Так же теперь валидация вынерена в отдельный модуль
+  
+
+
 Простой мессенджер, написаный на классовых комапонентов.
 Каждый класс наследуется от класса Block который реальзует методы жизненного цикла:
 
@@ -17,12 +45,12 @@
 
 ## Странцы
 
-1. Авторизация: https://deploy-preview-2--resplendent-chaja-1874eb.netlify.app/
-2. Регистрация: https://deploy-preview-2--resplendent-chaja-1874eb.netlify.app/registration
-3. Диалоги: https://deploy-preview-2--resplendent-chaja-1874eb.netlify.app/dialogs
-4. Профиль: https://deploy-preview-2--resplendent-chaja-1874eb.netlify.app/profile
-5. 4\*\* Ошибка: https://deploy-preview-2--resplendent-chaja-1874eb.netlify.app/asd
-6. 5\*\* Ошибка:https://deploy-preview-2--resplendent-chaja-1874eb.netlify.app/server-error
+1. Авторизация: https://654cd2cfb4e2100008a43f50--resplendent-chaja-1874eb.netlify.app/
+2. Регистрация: https://654cd2cfb4e2100008a43f50--resplendent-chaja-1874eb.netlify.app/registration
+3. Диалоги: https://654cd2cfb4e2100008a43f50--resplendent-chaja-1874eb.netlify.app//dialogs
+4. Профиль: https://654cd2cfb4e2100008a43f50--resplendent-chaja-1874eb.netlify.app/profile
+5. 4\*\* Ошибка: https://654cd2cfb4e2100008a43f50--resplendent-chaja-1874eb.netlify.app/asd
+6. 5\*\* Ошибка:https://654cd2cfb4e2100008a43f50--resplendent-chaja-1874eb.netlify.app//server-error
 
 ## Установка
 
