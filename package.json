@@ -16,6 +16,11 @@
     "lint": "run-p lint:*",
     "prepare": "husky install"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm-run-all test lint"
+    }
+  },
   "devDependencies": {
     "@types/chai": "4.3.3",
     "@types/jsdom": "20.0.0",
