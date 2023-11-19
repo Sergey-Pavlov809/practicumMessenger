@@ -6,6 +6,7 @@
   "scripts": {
     "start": "vite",
     "dev": "npm run build  && node ./server.js",
+    "test": "mocha --require ts-node/register --require ./mochaSetup.cjs './src/**/*.test.ts'",
     "prebuild": "tsc --noEmit",
     "build": "tsc && vite build",
     "preview": "vite preview",
@@ -13,7 +14,15 @@
     "lint": "npx eslint \"**/*.ts\""
   },
   "devDependencies": {
-    "@types/node": "^20.9.0",
+    "@types/chai": "4.3.3",
+    "@types/jsdom": "20.0.0",
+    "@types/mocha": "10.0.0",
+    "@types/sinon": "10.0.13",
+    "chai": "4.3.6",
+    "jsdom": "20.0.1",
+    "mocha": "10.0.0",
+    "sinon": "14.0.1",
+    "ts-node": "10.9.1",
     "@types/uuid": "^9.0.6",
     "@typescript-eslint/eslint-plugin": "^6.7.5",
     "@typescript-eslint/parser": "^6.7.5",
@@ -38,8 +47,10 @@
     "node": ">=12"
   },
   "dependencies": {
+    "babel-register": "^6.26.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "express": "^4.18.2",
+    "sinon": "^17.0.1",
     "stylelint-less": "^2.0.0",
     "uuid": "^9.0.1",
     "vite-plugin-checker": "^0.6.2",
