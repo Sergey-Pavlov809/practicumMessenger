@@ -1,5 +1,6 @@
 const { JSDOM } = require("jsdom");
-const { window } = new JSDOM("<div id=`app`></div>", {
+// eslint-disable-next-line quotes
+const { window } = new JSDOM('<main id="app"></main>', {
   url: "http://localhost:5173",
 });
 

@@ -9,8 +9,8 @@ describe("LinkButton", () => {
   
     const element = linkButton.element as HTMLElement;
   
-    element.click();
+    element?.click();
   
-    expect(callback.calledOnce).to.eq(true);
+    expect(callback?.calledOnce).to.eq(true);
   });
 });
