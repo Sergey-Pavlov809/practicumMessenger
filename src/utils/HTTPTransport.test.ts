@@ -10,7 +10,7 @@ describe("HTTPTransport", () => {
   beforeEach(() => {
     xhr = sinon.useFakeXMLHttpRequest();
   
-    //@ts-expect-error
+    //@ts-expect-error ban error
     global.XMLHttpRequest = xhr;
   
     xhr.onCreate = (req) => {
