@@ -54,7 +54,6 @@ class AddUserComponent extends Block {
           evt.preventDefault();
 
           this.setProps({ isSearch: false });
-
           StoreApp.dispatch({ modals: { addUsers: false } });
         },
       },
