@@ -2,10 +2,9 @@
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
-    "module": "ESNext",
+    "module": "commonjs",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
-    "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -16,8 +15,9 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
     "sourceMap": true,
+    "esModuleInterop": true,
     "strictNullChecks": true 
   },
-  "include": ["src", "exports.d.ts","vite.config.ts", "index.ts", "server.js"],
+  "include": ["src", "src/**/*.test.ts", "exports.d.ts", "vite.config.ts", "index.ts", "server.js"],
   "files": ["exports.d.ts"]
 }
